@@ -1,6 +1,10 @@
 # Vercidium Audio
 
-This is a .NET 'swapper' that wraps both Vercidium Audio C# and C SDKs.
+This is a .NET 'swapper' that wraps both Vercidium Audio C# and C SDKs:
+- Set `vaudioswapper.Settings.USE_NATIVE = false;` to use C#
+- Set `vaudioswapper.Settings.USE_NATIVE = true;` to use C
+
+## Setup
 
 This repository requires:
 - Vercidium Audio v1.7.0. Download it from [vercidium.com](https://vercidium.com)
@@ -9,6 +13,10 @@ This repository requires:
 - [vaudio-native-wrapper-common](https://github.com/vercidium-audio/vaudio-native-wrapper-common) must be cloned alongside this repository
 
 > Please note that the Vercidium Audio SDK is not free for commercial use. See [vercidium.com/eula](https://vercidium.com/eula)
+
+To use the C# SDK, copy `vaudio.dll` and `vaudio.xml` from the `dotnet/dev` folder in the Vercidium Audio SDK, to the `3d/lib` folder.
+
+To use the native C SDK, ensure your project copies `vaudionative.dll` to your build folder.
 
 ## Features
 
