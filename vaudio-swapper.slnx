@@ -1,0 +1,13 @@
+<Solution>
+	<Configurations>
+		<BuildType Name="Debug" />
+		<BuildType Name="Release" />
+	</Configurations>
+
+	<Project Path="2d/vaudioswapper2d.csproj" />
+	<Project Path="3d/vaudioswapper.csproj" />
+	
+	<!-- Sibling repositories -->
+	<Project Path="../vaudio-native-wrapper-2d/vaudio-native-wrapper-2d.csproj" />
+	<Project Path="../vaudio-native-wrapper-3d/vaudio-native-wrapper-3d.csproj" />
+</Solution>

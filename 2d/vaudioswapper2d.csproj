@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<Configurations>Debug;Release</Configurations>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="vaudio">
+			<HintPath>lib\vaudio.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<!-- Common C# code across 2D and 3D swapper -->
+	<ItemGroup>
+		<Compile Include="..\common\**\*.cs" LinkBase="common" />
+	</ItemGroup>
+
+	<!-- Omit lib/ from solution explorer -->
+	<ItemGroup>
+		<Compile Remove="lib\**" />
+		<EmbeddedResource Remove="lib\**" />
+		<None Remove="lib\**" />
+	</ItemGroup>
+
+	<!-- Sibling repository -->
+	<ItemGroup>
+		<ProjectReference Include="..\..\vaudio-native-wrapper-2d\vaudio-native-wrapper-2d.csproj" />
+	</ItemGroup>
+</Project>
