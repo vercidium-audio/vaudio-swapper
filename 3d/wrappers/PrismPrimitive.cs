@@ -5,9 +5,9 @@ public class PrismPrimitive : Primitive
     public new vaudio.PrismPrimitive managed => base.managed as vaudio.PrismPrimitive;
     public new vaudionativewrapper.managed.PrismPrimitive native => base.native as vaudionativewrapper.managed.PrismPrimitive;
 
-    public PrismPrimitive(bool isNative)
+    public PrismPrimitive()
     {
-        if (isNative)
+        if (IS_NATIVE)
             base.native = new vaudionativewrapper.managed.PrismPrimitive();
         else
             base.managed = new vaudio.PrismPrimitive();

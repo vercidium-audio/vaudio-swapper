@@ -5,9 +5,9 @@ public class TrianglePrimitive : Primitive
     public new vaudio.TrianglePrimitive managed => base.managed as vaudio.TrianglePrimitive;
     public new vaudionativewrapper.managed.TrianglePrimitive native => base.native as vaudionativewrapper.managed.TrianglePrimitive;
 
-    public TrianglePrimitive(bool isNative)
+    public TrianglePrimitive()
     {
-        if (isNative)
+        if (IS_NATIVE)
             base.native = new vaudionativewrapper.managed.TrianglePrimitive();
         else
             base.managed = new vaudio.TrianglePrimitive();

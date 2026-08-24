@@ -2,13 +2,13 @@
 
 public class AirAbsorptionSettings
 {
-    public bool isManaged => native == null;
     public vaudionativewrapper.managed.AirAbsorptionSettings native;
     public vaudio.AirAbsorptionSettings managed;
+    bool isManaged => managed != null;
 
-    public AirAbsorptionSettings(bool isNative)
+    public AirAbsorptionSettings()
     {
-        if (isNative)
+        if (IS_NATIVE)
             native = new();
         else
             managed = new();
@@ -26,8 +26,7 @@ public class AirAbsorptionSettings
 
     public void Destroy()
     {
-        if (!isManaged)
-            native.Destroy();
+            native?.Destroy();
     }
 
     public float Humidity

@@ -4,13 +4,10 @@ public class Mesh
 {
     internal readonly vaudio.Mesh managed;
     internal readonly vaudionativewrapper.managed.Mesh native;
-    internal readonly bool isManaged;
 
-    public Mesh(bool isNative, vaudio.Vector[] vertices, vaudio.Vector minBounds, vaudio.Vector maxBounds)
+    public Mesh(vaudio.Vector[] vertices, vaudio.Vector minBounds, vaudio.Vector maxBounds)
     {
-        isManaged = !isNative;
-
-        if (isNative)
+        if (IS_NATIVE)
             native = new(ToNative(vertices),
                          ToNative(minBounds),
                          ToNative(maxBounds));
@@ -18,11 +15,9 @@ public class Mesh
             managed = new vaudio.Mesh(vertices, minBounds, maxBounds);
     }
 
-    public Mesh(bool isNative, List<vaudio.Vector> vertices, vaudio.Vector minBounds, vaudio.Vector maxBounds)
+    public Mesh(List<vaudio.Vector> vertices, vaudio.Vector minBounds, vaudio.Vector maxBounds)
     {
-        isManaged = !isNative;
-
-        if (isNative)
+        if (IS_NATIVE)
             native = new(ToNative(vertices),
                          ToNative(minBounds),
                          ToNative(maxBounds));
@@ -32,9 +27,6 @@ public class Mesh
 
     public void Destroy()
     {
-        if (isManaged)
-            return;
-
-        native.Destroy();
+        native?.Destroy();
     }
 }

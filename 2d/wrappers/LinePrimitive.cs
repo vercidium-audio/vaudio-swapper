@@ -5,9 +5,9 @@ public class LinePrimitive : Primitive
     public new vaudio.LinePrimitive managed => base.managed as vaudio.LinePrimitive;
     public new vaudionativewrapper.managed.LinePrimitive native => base.native as vaudionativewrapper.managed.LinePrimitive;
 
-    public LinePrimitive(bool isNative)
+    public LinePrimitive()
     {
-        if (isNative)
+        if (IS_NATIVE)
             base.native = new vaudionativewrapper.managed.LinePrimitive();
         else
             base.managed = new vaudio.LinePrimitive();

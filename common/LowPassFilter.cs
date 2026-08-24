@@ -8,7 +8,7 @@ public unsafe class LowPassFilter
     public vaudionativewrapper.LowPassFilter* native;
     public vaudio.LowPassFilter managed;
 
-    bool clientside;
+    bool freeInFinaliser;
 
     public LowPassFilter(vaudionativewrapper.LowPassFilter* native)
     {
@@ -20,12 +20,12 @@ public unsafe class LowPassFilter
         this.managed = managed;
     }
 
-    public LowPassFilter(bool isNative)
+    public LowPassFilter()
     {
-        if (isNative)
+        if (IS_NATIVE)
         {
             native = (vaudionativewrapper.LowPassFilter*)NativeMemory.AllocZeroed((nuint)sizeof(vaudionativewrapper.LowPassFilter));
-            clientside = true;
+            freeInFinaliser = true;
         }
         else
             managed = new vaudio.LowPassFilter();
@@ -59,7 +59,7 @@ public unsafe class LowPassFilter
 
     ~LowPassFilter()
     {
-        if (clientside)
+        if (freeInFinaliser)
         {
             NativeMemory.Free(native);
             native = null;

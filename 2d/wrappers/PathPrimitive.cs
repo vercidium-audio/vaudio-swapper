@@ -8,9 +8,9 @@ public class PathPrimitive : Primitive
     public new vaudio.PathPrimitive managed => base.managed as vaudio.PathPrimitive;
     public new vaudionativewrapper.managed.PathPrimitive native => base.native as vaudionativewrapper.managed.PathPrimitive;
 
-    public PathPrimitive(bool isNative, string svgPath)
+    public PathPrimitive(string svgPath)
     {
-        if (isNative)
+        if (IS_NATIVE)
             base.native = new vaudionativewrapper.managed.PathPrimitive(svgPath);
         else
             base.managed = new vaudio.PathPrimitive { svgPath = svgPath };

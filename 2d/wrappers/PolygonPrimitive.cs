@@ -5,9 +5,9 @@ public class PolygonPrimitive : Primitive
     public new vaudio.PolygonPrimitive managed => base.managed as vaudio.PolygonPrimitive;
     public new vaudionativewrapper.managed.PolygonPrimitive native => base.native as vaudionativewrapper.managed.PolygonPrimitive;
 
-    public PolygonPrimitive(bool isNative, List<vaudio.Vector> points)
+    public PolygonPrimitive(List<vaudio.Vector> points)
     {
-        if (isNative)
+        if (IS_NATIVE)
             base.native = new vaudionativewrapper.managed.PolygonPrimitive(ToNative(points));
         else
             base.managed = new vaudio.PolygonPrimitive { points = points };

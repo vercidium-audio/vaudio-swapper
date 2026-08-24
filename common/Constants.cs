@@ -1,7 +1,14 @@
 global using static vaudioswapper.Constants;
+global using static vaudioswapper.Settings;
+
 using System.Runtime.CompilerServices;
 
 namespace vaudioswapper;
+
+public static class Settings
+{
+    public static bool IS_NATIVE;
+}
 
 internal static partial class Constants
 {

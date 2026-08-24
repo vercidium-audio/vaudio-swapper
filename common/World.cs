@@ -6,9 +6,9 @@ public partial class World
     public vaudionativewrapper.managed.World native;
     public vaudio.World managed;
 
-    public World(bool isNative)
+    public World()
     {
-        if (isNative)
+        if (IS_NATIVE)
             native = new();
         else
             managed = new();

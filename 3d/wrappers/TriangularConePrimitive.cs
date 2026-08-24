@@ -5,9 +5,9 @@ public class TriangularConePrimitive : Primitive
     public new vaudio.TriangularConePrimitive managed => base.managed as vaudio.TriangularConePrimitive;
     public new vaudionativewrapper.managed.TriangularConePrimitive native => base.native as vaudionativewrapper.managed.TriangularConePrimitive;
 
-    public TriangularConePrimitive(bool isNative)
+    public TriangularConePrimitive()
     {
-        if (isNative)
+        if (IS_NATIVE)
             base.native = new vaudionativewrapper.managed.TriangularConePrimitive();
         else
             base.managed = new vaudio.TriangularConePrimitive();

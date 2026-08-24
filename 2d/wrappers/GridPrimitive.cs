@@ -5,9 +5,9 @@ public class GridPrimitive : Primitive
     public new vaudio.GridPrimitive managed => base.managed as vaudio.GridPrimitive;
     public new vaudionativewrapper.managed.GridPrimitive native => base.native as vaudionativewrapper.managed.GridPrimitive;
 
-    public GridPrimitive(bool isNative, int width, int height)
+    public GridPrimitive(int width, int height)
     {
-        if (isNative)
+        if (IS_NATIVE)
             base.native = new vaudionativewrapper.managed.GridPrimitive(width, height);
         else
             base.managed = new vaudio.GridPrimitive(width, height);

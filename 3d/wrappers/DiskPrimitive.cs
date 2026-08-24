@@ -5,9 +5,9 @@ public class DiskPrimitive : Primitive
     public new vaudio.DiskPrimitive managed => base.managed as vaudio.DiskPrimitive;
     public new vaudionativewrapper.managed.DiskPrimitive native => base.native as vaudionativewrapper.managed.DiskPrimitive;
 
-    public DiskPrimitive(bool isNative)
+    public DiskPrimitive()
     {
-        if (isNative)
+        if (IS_NATIVE)
             base.native = new vaudionativewrapper.managed.DiskPrimitive();
         else
             base.managed = new vaudio.DiskPrimitive();

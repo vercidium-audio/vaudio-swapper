@@ -5,9 +5,9 @@ public class ConePrimitive : Primitive
     public new vaudio.ConePrimitive managed => base.managed as vaudio.ConePrimitive;
     public new vaudionativewrapper.managed.ConePrimitive native => base.native as vaudionativewrapper.managed.ConePrimitive;
 
-    public ConePrimitive(bool isNative)
+    public ConePrimitive()
     {
-        if (isNative)
+        if (IS_NATIVE)
             base.native = new vaudionativewrapper.managed.ConePrimitive();
         else
             base.managed = new vaudio.ConePrimitive();

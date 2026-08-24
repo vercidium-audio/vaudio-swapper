@@ -9,13 +9,13 @@ public class VoxelPrimitive : Primitive
     public readonly int height;
     public readonly int depth;
 
-    public VoxelPrimitive(bool isNative, int width, int height, int depth)
+    public VoxelPrimitive(int width, int height, int depth)
     {
         this.width = width;
         this.height = height;
         this.depth = depth;
 
-        if (isNative)
+        if (IS_NATIVE)
             base.native = new vaudionativewrapper.managed.VoxelPrimitive(width, height, depth);
         else
             base.managed = new vaudio.VoxelPrimitive(width, height, depth);
