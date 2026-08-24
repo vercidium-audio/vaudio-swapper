@@ -7,7 +7,7 @@ public class SpherePrimitive : Primitive
 
     public SpherePrimitive()
     {
-        if (IS_NATIVE)
+        if (USE_NATIVE)
             base.native = new vaudionativewrapper.managed.SpherePrimitive();
         else
             base.managed = new vaudio.SpherePrimitive();

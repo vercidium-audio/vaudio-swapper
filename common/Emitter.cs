@@ -18,7 +18,7 @@ public unsafe partial class Emitter
 
     public Emitter()
     {
-        if (IS_NATIVE)
+        if (USE_NATIVE)
             native = new();
         else
             managed = new();

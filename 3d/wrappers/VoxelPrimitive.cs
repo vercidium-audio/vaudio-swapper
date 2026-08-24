@@ -15,7 +15,7 @@ public class VoxelPrimitive : Primitive
         this.height = height;
         this.depth = depth;
 
-        if (IS_NATIVE)
+        if (USE_NATIVE)
             base.native = new vaudionativewrapper.managed.VoxelPrimitive(width, height, depth);
         else
             base.managed = new vaudio.VoxelPrimitive(width, height, depth);

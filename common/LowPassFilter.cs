@@ -22,7 +22,7 @@ public unsafe class LowPassFilter
 
     public LowPassFilter()
     {
-        if (IS_NATIVE)
+        if (USE_NATIVE)
         {
             native = (vaudionativewrapper.LowPassFilter*)NativeMemory.AllocZeroed((nuint)sizeof(vaudionativewrapper.LowPassFilter));
             freeInFinaliser = true;

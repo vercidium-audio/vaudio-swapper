@@ -7,7 +7,7 @@ public class LinePrimitive : Primitive
 
     public LinePrimitive()
     {
-        if (IS_NATIVE)
+        if (USE_NATIVE)
             base.native = new vaudionativewrapper.managed.LinePrimitive();
         else
             base.managed = new vaudio.LinePrimitive();

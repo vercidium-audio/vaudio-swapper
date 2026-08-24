@@ -7,7 +7,7 @@ public class RectangularConePrimitive : Primitive
 
     public RectangularConePrimitive()
     {
-        if (IS_NATIVE)
+        if (USE_NATIVE)
             base.native = new vaudionativewrapper.managed.RectangularConePrimitive();
         else
             base.managed = new vaudio.RectangularConePrimitive();

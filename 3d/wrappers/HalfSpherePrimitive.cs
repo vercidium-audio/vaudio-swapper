@@ -7,7 +7,7 @@ public class HalfSpherePrimitive : Primitive
 
     public HalfSpherePrimitive()
     {
-        if (IS_NATIVE)
+        if (USE_NATIVE)
             base.native = new vaudionativewrapper.managed.HalfSpherePrimitive();
         else
             base.managed = new vaudio.HalfSpherePrimitive();

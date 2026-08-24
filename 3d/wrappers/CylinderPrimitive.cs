@@ -7,7 +7,7 @@ public class CylinderPrimitive : Primitive
 
     public CylinderPrimitive()
     {
-        if (IS_NATIVE)
+        if (USE_NATIVE)
             base.native = new vaudionativewrapper.managed.CylinderPrimitive();
         else
             base.managed = new vaudio.CylinderPrimitive();

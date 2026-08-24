@@ -8,7 +8,7 @@ public class AirAbsorptionSettings
 
     public AirAbsorptionSettings()
     {
-        if (IS_NATIVE)
+        if (USE_NATIVE)
             native = new();
         else
             managed = new();

@@ -7,7 +7,7 @@ public class PlanePrimitive : Primitive
 
     public PlanePrimitive()
     {
-        if (IS_NATIVE)
+        if (USE_NATIVE)
             base.native = new vaudionativewrapper.managed.PlanePrimitive();
         else
             base.managed = new vaudio.PlanePrimitive();

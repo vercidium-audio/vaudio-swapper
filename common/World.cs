@@ -8,7 +8,7 @@ public partial class World
 
     public World()
     {
-        if (IS_NATIVE)
+        if (USE_NATIVE)
             native = new();
         else
             managed = new();

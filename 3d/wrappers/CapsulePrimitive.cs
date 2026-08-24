@@ -7,7 +7,7 @@ public class CapsulePrimitive : Primitive
 
     public CapsulePrimitive()
     {
-        if (IS_NATIVE)
+        if (USE_NATIVE)
             base.native = new vaudionativewrapper.managed.CapsulePrimitive();
         else
             base.managed = new vaudio.CapsulePrimitive();

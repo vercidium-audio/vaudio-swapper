@@ -7,7 +7,7 @@ namespace vaudioswapper;
 
 public static class Settings
 {
-    public static bool IS_NATIVE;
+    public static bool USE_NATIVE;
 }
 
 internal static partial class Constants

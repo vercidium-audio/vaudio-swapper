@@ -7,7 +7,7 @@ public class Mesh
 
     public Mesh(vaudio.Vector[] vertices, vaudio.Vector minBounds, vaudio.Vector maxBounds)
     {
-        if (IS_NATIVE)
+        if (USE_NATIVE)
             native = new(ToNative(vertices),
                          ToNative(minBounds),
                          ToNative(maxBounds));
@@ -17,7 +17,7 @@ public class Mesh
 
     public Mesh(List<vaudio.Vector> vertices, vaudio.Vector minBounds, vaudio.Vector maxBounds)
     {
-        if (IS_NATIVE)
+        if (USE_NATIVE)
             native = new(ToNative(vertices),
                          ToNative(minBounds),
                          ToNative(maxBounds));

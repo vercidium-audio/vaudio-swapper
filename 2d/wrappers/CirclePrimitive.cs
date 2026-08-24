@@ -7,7 +7,7 @@ public class CirclePrimitive : Primitive
 
     public CirclePrimitive()
     {
-        if (IS_NATIVE)
+        if (USE_NATIVE)
             base.native = new vaudionativewrapper.managed.CirclePrimitive();
         else
             base.managed = new vaudio.CirclePrimitive();
