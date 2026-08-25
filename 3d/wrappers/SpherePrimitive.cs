@@ -5,9 +5,11 @@ public class SpherePrimitive : Primitive
     public new vaudio.SpherePrimitive managed => base.managed as vaudio.SpherePrimitive;
     public new vaudionativewrapper.managed.SpherePrimitive native => base.native as vaudionativewrapper.managed.SpherePrimitive;
 
-    public SpherePrimitive()
+    public SpherePrimitive() : this(USE_NATIVE) { }
+
+    public SpherePrimitive(bool useNative)
     {
-        if (USE_NATIVE)
+        if (useNative)
             base.native = new vaudionativewrapper.managed.SpherePrimitive();
         else
             base.managed = new vaudio.SpherePrimitive();

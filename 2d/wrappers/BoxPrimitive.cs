@@ -5,9 +5,11 @@ public class BoxPrimitive : Primitive
     public new vaudio.BoxPrimitive managed => base.managed as vaudio.BoxPrimitive;
     public new vaudionativewrapper.managed.BoxPrimitive native => base.native as vaudionativewrapper.managed.BoxPrimitive;
 
-    public BoxPrimitive()
+    public BoxPrimitive() : this(USE_NATIVE) { }
+
+    public BoxPrimitive(bool useNative)
     {
-        if (USE_NATIVE)
+        if (useNative)
             base.native = new vaudionativewrapper.managed.BoxPrimitive();
         else
             base.managed = new vaudio.BoxPrimitive();

@@ -5,9 +5,11 @@ public class HalfSpherePrimitive : Primitive
     public new vaudio.HalfSpherePrimitive managed => base.managed as vaudio.HalfSpherePrimitive;
     public new vaudionativewrapper.managed.HalfSpherePrimitive native => base.native as vaudionativewrapper.managed.HalfSpherePrimitive;
 
-    public HalfSpherePrimitive()
+    public HalfSpherePrimitive() : this(USE_NATIVE) { }
+
+    public HalfSpherePrimitive(bool useNative)
     {
-        if (USE_NATIVE)
+        if (useNative)
             base.native = new vaudionativewrapper.managed.HalfSpherePrimitive();
         else
             base.managed = new vaudio.HalfSpherePrimitive();

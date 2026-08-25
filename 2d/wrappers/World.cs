@@ -49,4 +49,19 @@ public partial class World
                 native.CameraRotation = value;
         }
     }
+
+    public float CameraZoom
+    {
+        get
+        {
+            return isManaged ? managed.CameraZoom : native.CameraZoom;
+        }
+        set
+        {
+            if (isManaged)
+                managed.CameraZoom = value;
+            else
+                native.CameraZoom = value;
+        }
+    }
 }

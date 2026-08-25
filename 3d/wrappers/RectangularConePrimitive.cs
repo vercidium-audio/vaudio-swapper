@@ -5,9 +5,11 @@ public class RectangularConePrimitive : Primitive
     public new vaudio.RectangularConePrimitive managed => base.managed as vaudio.RectangularConePrimitive;
     public new vaudionativewrapper.managed.RectangularConePrimitive native => base.native as vaudionativewrapper.managed.RectangularConePrimitive;
 
-    public RectangularConePrimitive()
+    public RectangularConePrimitive() : this(USE_NATIVE) { }
+
+    public RectangularConePrimitive(bool useNative)
     {
-        if (USE_NATIVE)
+        if (useNative)
             base.native = new vaudionativewrapper.managed.RectangularConePrimitive();
         else
             base.managed = new vaudio.RectangularConePrimitive();

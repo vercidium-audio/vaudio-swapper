@@ -5,9 +5,11 @@ public class CapsulePrimitive : Primitive
     public new vaudio.CapsulePrimitive managed => base.managed as vaudio.CapsulePrimitive;
     public new vaudionativewrapper.managed.CapsulePrimitive native => base.native as vaudionativewrapper.managed.CapsulePrimitive;
 
-    public CapsulePrimitive()
+    public CapsulePrimitive() : this(USE_NATIVE) { }
+
+    public CapsulePrimitive(bool useNative)
     {
-        if (USE_NATIVE)
+        if (useNative)
             base.native = new vaudionativewrapper.managed.CapsulePrimitive();
         else
             base.managed = new vaudio.CapsulePrimitive();

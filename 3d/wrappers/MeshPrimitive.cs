@@ -5,9 +5,12 @@ public class MeshPrimitive : Primitive
     public new vaudio.MeshPrimitive managed => base.managed as vaudio.MeshPrimitive;
     public new vaudionativewrapper.managed.MeshPrimitive native => base.native as vaudionativewrapper.managed.MeshPrimitive;
 
-    public MeshPrimitive(vaudio.MaterialType material, List<vaudio.Vector> vertices, vaudio.Vector minBounds, vaudio.Vector maxBounds, vaudio.Matrix transform)
+    public MeshPrimitive(vaudio.MaterialType material, List<vaudio.Vector> vertices, vaudio.Vector minBounds, vaudio.Vector maxBounds, vaudio.Matrix transform) :
+        this(USE_NATIVE, material, vertices, minBounds, maxBounds, transform) { }
+
+    public MeshPrimitive(bool useNative, vaudio.MaterialType material, List<vaudio.Vector> vertices, vaudio.Vector minBounds, vaudio.Vector maxBounds, vaudio.Matrix transform)
     {
-        if (USE_NATIVE)
+        if (useNative)
             base.native = new vaudionativewrapper.managed.MeshPrimitive(ToNative(material),
                                                                         ToNative(vertices.ToArray()),
                                                                         ToNative(minBounds),
@@ -17,9 +20,12 @@ public class MeshPrimitive : Primitive
             base.managed = new vaudio.MeshPrimitive(material, vertices, minBounds, maxBounds, transform);
     }
 
-    public MeshPrimitive(vaudio.MaterialType material, vaudio.Vector[] vertices, vaudio.Vector minBounds, vaudio.Vector maxBounds, vaudio.Matrix transform)
+    public MeshPrimitive(vaudio.MaterialType material, vaudio.Vector[] vertices, vaudio.Vector minBounds, vaudio.Vector maxBounds, vaudio.Matrix transform) :
+        this(USE_NATIVE, material, vertices, minBounds, maxBounds, transform) { }
+
+    public MeshPrimitive(bool useNative, vaudio.MaterialType material, vaudio.Vector[] vertices, vaudio.Vector minBounds, vaudio.Vector maxBounds, vaudio.Matrix transform)
     {
-        if (USE_NATIVE)
+        if (useNative)
             base.native = new vaudionativewrapper.managed.MeshPrimitive(ToNative(material),
                                                                         ToNative(vertices),
                                                                         ToNative(minBounds),
@@ -29,9 +35,12 @@ public class MeshPrimitive : Primitive
             base.managed = new vaudio.MeshPrimitive(material, vertices, minBounds, maxBounds, transform);
     }
 
-    public MeshPrimitive(vaudio.MaterialType material, Mesh mesh, vaudio.Matrix transform)
+    public MeshPrimitive(vaudio.MaterialType material, Mesh mesh, vaudio.Matrix transform) :
+        this(USE_NATIVE, material, mesh, transform) { }
+
+    public MeshPrimitive(bool useNative, vaudio.MaterialType material, Mesh mesh, vaudio.Matrix transform)
     {
-        if (USE_NATIVE)
+        if (useNative)
             base.native = new vaudionativewrapper.managed.MeshPrimitive(ToNative(material),
                                                                         mesh.native,
                                                                         ToNative(transform));

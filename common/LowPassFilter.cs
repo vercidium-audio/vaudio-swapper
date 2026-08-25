@@ -20,7 +20,9 @@ public unsafe class LowPassFilter
         this.managed = managed;
     }
 
-    public LowPassFilter()
+    public LowPassFilter() : this(USE_NATIVE) { }
+
+    public LowPassFilter(bool useNative)
     {
         if (USE_NATIVE)
         {

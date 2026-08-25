@@ -1,16 +1,15 @@
 namespace vaudioswapper;
 
-// NOTE: native/2d has no vaPathPrimitive* exports yet (native port deferred, see
-// project_pathprimitive_analytic_bezier memory) - the native side of this wrapper
-// will fail at the DLL boundary until that port lands. Wrapper added for API parity.
 public class PathPrimitive : Primitive
 {
     public new vaudio.PathPrimitive managed => base.managed as vaudio.PathPrimitive;
     public new vaudionativewrapper.managed.PathPrimitive native => base.native as vaudionativewrapper.managed.PathPrimitive;
 
-    public PathPrimitive(string svgPath)
+    public PathPrimitive(string svgPath) : this(USE_NATIVE, svgPath) { }
+
+    public PathPrimitive(bool useNative, string svgPath)
     {
-        if (USE_NATIVE)
+        if (useNative)
             base.native = new vaudionativewrapper.managed.PathPrimitive(svgPath);
         else
             base.managed = new vaudio.PathPrimitive { svgPath = svgPath };

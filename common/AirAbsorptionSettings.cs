@@ -6,9 +6,11 @@ public class AirAbsorptionSettings
     public vaudio.AirAbsorptionSettings managed;
     bool isManaged => managed != null;
 
-    public AirAbsorptionSettings()
+    public AirAbsorptionSettings() : this(USE_NATIVE) { }
+
+    public AirAbsorptionSettings(bool useNative)
     {
-        if (USE_NATIVE)
+        if (useNative)
             native = new();
         else
             managed = new();

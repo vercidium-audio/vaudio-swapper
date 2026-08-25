@@ -5,9 +5,11 @@ public class TriangularPrismPrimitive : Primitive
     public new vaudio.TriangularPrismPrimitive managed => base.managed as vaudio.TriangularPrismPrimitive;
     public new vaudionativewrapper.managed.TriangularPrismPrimitive native => base.native as vaudionativewrapper.managed.TriangularPrismPrimitive;
 
-    public TriangularPrismPrimitive()
+    public TriangularPrismPrimitive() : this(USE_NATIVE) { }
+
+    public TriangularPrismPrimitive(bool useNative)
     {
-        if (USE_NATIVE)
+        if (useNative)
             base.native = new vaudionativewrapper.managed.TriangularPrismPrimitive();
         else
             base.managed = new vaudio.TriangularPrismPrimitive();

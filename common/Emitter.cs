@@ -16,7 +16,9 @@ public unsafe partial class Emitter
         this.native = new(native);
     }
 
-    public Emitter()
+    public Emitter() : this(USE_NATIVE) { }
+
+    public Emitter(bool useNative)
     {
         if (USE_NATIVE)
             native = new();

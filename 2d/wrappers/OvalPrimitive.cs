@@ -5,9 +5,11 @@ public class OvalPrimitive : Primitive
     public new vaudio.OvalPrimitive managed => base.managed as vaudio.OvalPrimitive;
     public new vaudionativewrapper.managed.OvalPrimitive native => base.native as vaudionativewrapper.managed.OvalPrimitive;
 
-    public OvalPrimitive()
+    public OvalPrimitive() : this(USE_NATIVE) { }
+
+    public OvalPrimitive(bool useNative)
     {
-        if (USE_NATIVE)
+        if (useNative)
             base.native = new vaudionativewrapper.managed.OvalPrimitive();
         else
             base.managed = new vaudio.OvalPrimitive();

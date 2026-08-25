@@ -6,9 +6,11 @@ public partial class World
     public vaudionativewrapper.managed.World native;
     public vaudio.World managed;
 
-    public World()
+    public World() : this(USE_NATIVE) { }
+
+    public World(bool useNative)
     {
-        if (USE_NATIVE)
+        if (useNative)
             native = new();
         else
             managed = new();
@@ -542,6 +544,21 @@ public partial class World
                 managed.CameraSpeed = value;
             else
                 native.CameraSpeed = value;
+        }
+    }
+
+    public vaudio.CoordinateSystem CoordinateSystem
+    {
+        get
+        {
+            return isManaged ? managed.CoordinateSystem : (vaudio.CoordinateSystem)native.CoordinateSystem;
+        }
+        set
+        {
+            if (isManaged)
+                managed.CoordinateSystem = value;
+            else
+                native.CoordinateSystem = (vaudionativewrapper.CoordinateSystem)value;
         }
     }
 
