@@ -24,7 +24,7 @@ public unsafe class LowPassFilter
 
     public LowPassFilter(bool useNative)
     {
-        if (USE_NATIVE)
+        if (useNative)
         {
             native = (vaudionativewrapper.LowPassFilter*)NativeMemory.AllocZeroed((nuint)sizeof(vaudionativewrapper.LowPassFilter));
             freeInFinaliser = true;
