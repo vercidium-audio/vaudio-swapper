@@ -73,15 +73,15 @@ public class PolygonPrimitive : Primitive
         }
     }
 
-    public float scale
+    public vaudio.Vector scale
     {
-        get => isManaged ? managed.scale : native.scale;
+        get => isManaged ? managed.scale : ToDotnet(native.scale);
         set
         {
             if (isManaged)
                 managed.scale = value;
             else
-                native.scale = value;
+                native.scale = ToNative(value);
         }
     }
 
