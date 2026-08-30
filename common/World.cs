@@ -201,6 +201,11 @@ public partial class World
     public double PreparationTime => isManaged ? managed.PreparationTime : native.PreparationTime;
     public double RaytracingTime => isManaged ? managed.RaytracingTime : native.RaytracingTime;
     public double AnalysisTime => isManaged ? managed.AnalysisTime : native.AnalysisTime;
+    public double SubmitToWakeTime => isManaged ? managed.SubmitToWakeTime : native.SubmitToWakeTime;
+    public double WakeToFanoutTime => isManaged ? managed.WakeToFanoutTime : native.WakeToFanoutTime;
+    public double FanoutToLastWakeTime => isManaged ? managed.FanoutToLastWakeTime : native.FanoutToLastWakeTime;
+    public double LastWakeToWorkTime => isManaged ? managed.LastWakeToWorkTime : native.LastWakeToWorkTime;
+    public double CompletionWorkTime => isManaged ? managed.CompletionWorkTime : native.CompletionWorkTime;
 
     public List<EAXReverb> GroupedEAX
     {
