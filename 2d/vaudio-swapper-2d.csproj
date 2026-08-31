@@ -4,6 +4,11 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<Configurations>Debug;Release</Configurations>
+
+		<Version>1.8.0</Version>
+		<AssemblyVersion>1.8.0</AssemblyVersion>
+		<FileVersion>1.8.0</FileVersion>
+		<InformationalVersion>1.8.0</InformationalVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
