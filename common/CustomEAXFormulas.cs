@@ -1,8 +1,5 @@
 namespace vaudioswapper;
 
-// Forwards the native wrapper's virtual calls to a wrapped vaudio.CustomEAXFormulas instance,
-// so that consumer overrides of the dotnet SDK's virtual methods are honoured even when the
-// test swapper is running against the native SDK.
 internal unsafe class CustomEAXFormulasAdapter : vaudionativewrapper.managed.CustomEAXFormulas
 {
     private readonly vaudio.CustomEAXFormulas inner;
