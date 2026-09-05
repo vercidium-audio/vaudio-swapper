@@ -319,6 +319,36 @@ public unsafe partial class Emitter
         }
     }
 
+    public int VolumeRayCount
+    {
+        get => isManaged ? managed.VolumeRayCount : 0;
+        set
+        {
+            if (isManaged)
+                managed.VolumeRayCount = value;
+            else
+            {
+                // TODO
+                //native.OcclusionRayCount = value;
+            }
+        }
+    }
+
+    public float VolumeSizeInterpolation
+    {
+        get => isManaged ? managed.VolumeSizeInterpolation : 0;
+        set
+        {
+            if (isManaged)
+                managed.VolumeSizeInterpolation = value;
+            else
+            {
+                // TODO
+                //native.OcclusionRayCount = value;
+            }
+        }
+    }
+
     public bool CastsRays => isManaged ? managed.CastsRays : native.CastsRays;
 
     public bool WithinWorldBounds => isManaged ? managed.WithinWorldBounds : native.WithinWorldBounds;

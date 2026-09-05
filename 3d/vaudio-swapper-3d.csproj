@@ -5,18 +5,20 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<Configurations>Debug;Release</Configurations>
 
-		<Version>1.8.1</Version>
-		<AssemblyVersion>1.8.1</AssemblyVersion>
-		<FileVersion>1.8.1</FileVersion>
-		<InformationalVersion>1.8.1</InformationalVersion>
+		<Version>1.9.0</Version>
+		<AssemblyVersion>1.9.0</AssemblyVersion>
+		<FileVersion>1.9.0</FileVersion>
+		<InformationalVersion>1.9.0</InformationalVersion>
 	</PropertyGroup>
 
+	<!-- TODO - re-enable before committing
 	<ItemGroup>
 		<Reference Include="vaudio">
 			<HintPath>lib\vaudio.dll</HintPath>
 		</Reference>
 	</ItemGroup>
-
+	-->
+	
 	<!-- Common C# code across 2D and 3D swapper -->
 	<ItemGroup>
 		<Compile Include="..\common\**\*.cs" LinkBase="common" />
@@ -32,5 +34,6 @@
 	<!-- Sibling repository -->
 	<ItemGroup>
 		<ProjectReference Include="..\..\vaudio-native-wrapper-3d\vaudio-native-wrapper-3d.csproj" />
+		<ProjectReference Include="..\..\vaudio\dotnet\3d\vaudio3d.csproj" />
 	</ItemGroup>
 </Project>
