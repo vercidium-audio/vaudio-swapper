@@ -595,4 +595,16 @@ public partial class World
                 native.WindowSize = ((int)value.X, (int)value.Y);
         }
     }
+
+    public float VisualisationScale
+    {
+        get => isManaged ? managed.VisualisationScale : native.VisualisationScale;
+        set
+        {
+            if (isManaged)
+                managed.VisualisationScale = value;
+            else
+                native.VisualisationScale = value;
+        }
+    }
 }

@@ -5,10 +5,10 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<Configurations>Debug;Release</Configurations>
 
-		<Version>1.8.1</Version>
-		<AssemblyVersion>1.8.1</AssemblyVersion>
-		<FileVersion>1.8.1</FileVersion>
-		<InformationalVersion>1.8.1</InformationalVersion>
+		<Version>1.9.0</Version>
+		<AssemblyVersion>1.9.0</AssemblyVersion>
+		<FileVersion>1.9.0</FileVersion>
+		<InformationalVersion>1.9.0</InformationalVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
