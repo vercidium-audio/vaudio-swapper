@@ -11,10 +11,19 @@
 		<InformationalVersion>1.9.0</InformationalVersion>
 	</PropertyGroup>
 
-	<ItemGroup>
+	<!-- Set UseLocalVaudioSource=true (e.g. dotnet build -p:UseLocalVaudioSource=true, or a Directory.Build.props) to compile against the live ..\..\vaudio\dotnet\2d source instead of the prebuilt lib\vaudio.dll. -->
+	<PropertyGroup>
+		<UseLocalVaudioSource>false</UseLocalVaudioSource>
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(UseLocalVaudioSource)' != 'true'">
 		<Reference Include="vaudio">
 			<HintPath>lib\vaudio.dll</HintPath>
 		</Reference>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(UseLocalVaudioSource)' == 'true'">
+		<ProjectReference Include="..\..\vaudio\dotnet\2d\vaudio2d.csproj" />
 	</ItemGroup>
 
 	<!-- Common C# code across 2D and 3D swapper -->

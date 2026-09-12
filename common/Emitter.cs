@@ -118,15 +118,17 @@ public unsafe partial class Emitter
         }
     }
 
-    public int Type
+    public object UserData
     {
-        get => isManaged ? managed.Type : native.Type;
+        get => isManaged ? managed.UserData : native.UserData;
         set
         {
             if (isManaged)
-                managed.Type = value;
+                managed.UserData = value;
             else
-                native.Type = value;
+            {
+                throw new InvalidOperationException("Cannot cast managed UserData to native void*");
+            }
         }
     }
 
@@ -357,15 +359,15 @@ public unsafe partial class Emitter
         }
     }
 
-    public int RefreshRayCount
+    public int TrailRefreshCount
     {
-        get => isManaged ? managed.RefreshRayCount : native.RefreshRayCount;
+        get => isManaged ? managed.TrailRefreshCount : native.TrailRefreshCount;
         set
         {
             if (isManaged)
-                managed.RefreshRayCount = value;
+                managed.TrailRefreshCount = value;
             else
-                native.RefreshRayCount = value;
+                native.TrailRefreshCount = value;
         }
     }
 

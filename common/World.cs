@@ -431,6 +431,14 @@ public partial class World
             return new MaterialProperties() { native = native.GetMaterial(ToNative(type)) };
     }
 
+    public bool HasMaterial(vaudio.MaterialType type)
+    {
+        if (isManaged)
+            return managed.HasMaterial(type);
+        else
+            return native.HasMaterial(ToNative(type));
+    }
+
     public Action OnReverbUpdated
     {
         set
