@@ -11,9 +11,8 @@
 		<InformationalVersion>1.9.0</InformationalVersion>
 	</PropertyGroup>
 
-	<!-- Set UseLocalVaudioSource=true (e.g. dotnet build -p:UseLocalVaudioSource=true, or a Directory.Build.props) to compile against the live ..\..\vaudio\dotnet\3d source instead of the prebuilt lib\vaudio.dll. -->
 	<PropertyGroup>
-		<UseLocalVaudioSource>false</UseLocalVaudioSource>
+		<UseLocalVaudioSource>true</UseLocalVaudioSource>
 	</PropertyGroup>
 
 	<ItemGroup Condition="'$(UseLocalVaudioSource)' != 'true'">

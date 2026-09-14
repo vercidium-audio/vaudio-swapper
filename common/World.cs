@@ -201,6 +201,7 @@ public partial class World
     public double PreparationTime => isManaged ? managed.PreparationTime : native.PreparationTime;
     public double RaytracingTime => isManaged ? managed.RaytracingTime : native.RaytracingTime;
     public double AnalysisTime => isManaged ? managed.AnalysisTime : native.AnalysisTime;
+    public double Latency => isManaged ? managed.Latency : native.Latency;
     public double SubmitToWakeTime => isManaged ? managed.SubmitToWakeTime : native.SubmitToWakeTime;
     public double WakeToFanoutTime => isManaged ? managed.WakeToFanoutTime : native.WakeToFanoutTime;
     public double FanoutToLastWakeTime => isManaged ? managed.FanoutToLastWakeTime : native.FanoutToLastWakeTime;
@@ -237,18 +238,6 @@ public partial class World
                 managed.EmittersOutsideTheWorldAreMuffled = value;
             else
                 native.EmittersOutsideTheWorldAreMuffled = value;
-        }
-    }
-
-    public bool WorldIsIndoors
-    {
-        get => managed?.WorldIsIndoors ?? native.WorldIsIndoors;
-        set
-        {
-            if (isManaged)
-                managed.WorldIsIndoors = value;
-            else
-                native.WorldIsIndoors = value;
         }
     }
 
