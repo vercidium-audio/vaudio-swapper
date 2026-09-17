@@ -13,6 +13,10 @@
 
 	<PropertyGroup>
 		<UseLocalVaudioSource>true</UseLocalVaudioSource>
+
+		<!-- Separate output folders to prevent conflicts with parallel tests -->
+		<IntermediateOutputPath>obj\$(Configuration)-local$(UseLocalVaudioSource)\</IntermediateOutputPath>
+		<OutputPath>bin\$(Configuration)-local$(UseLocalVaudioSource)\</OutputPath>
 	</PropertyGroup>
 
 	<ItemGroup Condition="'$(UseLocalVaudioSource)' != 'true'">

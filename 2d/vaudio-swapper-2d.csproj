@@ -14,6 +14,10 @@
 	<!-- Set UseLocalVaudioSource=true (e.g. dotnet build -p:UseLocalVaudioSource=true, or a Directory.Build.props) to compile against the live ..\..\vaudio\dotnet\2d source instead of the prebuilt lib\vaudio.dll. -->
 	<PropertyGroup>
 		<UseLocalVaudioSource>false</UseLocalVaudioSource>
+
+		<!-- Separate output folders to prevent conflicts with parallel tests -->
+		<IntermediateOutputPath>obj\$(Configuration)-local$(UseLocalVaudioSource)\</IntermediateOutputPath>
+		<OutputPath>bin\$(Configuration)-local$(UseLocalVaudioSource)\</OutputPath>
 	</PropertyGroup>
 
 	<ItemGroup Condition="'$(UseLocalVaudioSource)' != 'true'">
