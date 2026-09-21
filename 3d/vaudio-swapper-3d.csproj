@@ -12,7 +12,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<UseLocalVaudioSource>true</UseLocalVaudioSource>
+		<UseLocalVaudioSource>false</UseLocalVaudioSource>
 
 		<!-- Separate output folders to prevent conflicts with parallel tests -->
 		<IntermediateOutputPath>obj\$(Configuration)-local$(UseLocalVaudioSource)\</IntermediateOutputPath>
@@ -29,12 +29,12 @@
 		<ProjectReference Include="..\..\vaudio\dotnet\3d\vaudio3d.csproj" />
 	</ItemGroup>
 
-	<!-- Common C# code across 2D and 3D swapper -->
+	<!-- Common C# code for both 2D and 3D swappers -->
 	<ItemGroup>
 		<Compile Include="..\common\**\*.cs" LinkBase="common" />
 	</ItemGroup>
 
-	<!-- Omit lib/ from solution explorer -->
+	<!-- Hide lib/ in the solution explorer -->
 	<ItemGroup>
 		<Compile Remove="lib\**" />
 		<EmbeddedResource Remove="lib\**" />
