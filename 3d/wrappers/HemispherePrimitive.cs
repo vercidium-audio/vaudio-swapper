@@ -1,26 +1,26 @@
 namespace vaudioswapper;
 
-public class HalfSpherePrimitive : Primitive
+public class HemispherePrimitive : Primitive
 {
-    public new vaudio.HalfSpherePrimitive managed => base.managed as vaudio.HalfSpherePrimitive;
-    public new vaudionativewrapper.managed.HalfSpherePrimitive native => base.native as vaudionativewrapper.managed.HalfSpherePrimitive;
+    public new vaudio.HemispherePrimitive managed => base.managed as vaudio.HemispherePrimitive;
+    public new vaudionativewrapper.managed.HemispherePrimitive native => base.native as vaudionativewrapper.managed.HemispherePrimitive;
 
-    public HalfSpherePrimitive() : this(USE_NATIVE) { }
+    public HemispherePrimitive() : this(USE_NATIVE) { }
 
-    public HalfSpherePrimitive(bool useNative)
+    public HemispherePrimitive(bool useNative)
     {
         if (useNative)
-            base.native = new vaudionativewrapper.managed.HalfSpherePrimitive();
+            base.native = new vaudionativewrapper.managed.HemispherePrimitive();
         else
-            base.managed = new vaudio.HalfSpherePrimitive();
+            base.managed = new vaudio.HemispherePrimitive();
     }
 
-    public HalfSpherePrimitive(vaudionativewrapper.managed.HalfSpherePrimitive prim)
+    public HemispherePrimitive(vaudionativewrapper.managed.HemispherePrimitive prim)
     {
         base.native = prim;
     }
 
-    public HalfSpherePrimitive(vaudio.HalfSpherePrimitive prim)
+    public HemispherePrimitive(vaudio.HemispherePrimitive prim)
     {
         base.managed = prim;
     }

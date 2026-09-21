@@ -5,24 +5,36 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<Configurations>Debug;Release</Configurations>
 
-		<Version>1.8.1</Version>
-		<AssemblyVersion>1.8.1</AssemblyVersion>
-		<FileVersion>1.8.1</FileVersion>
-		<InformationalVersion>1.8.1</InformationalVersion>
+		<Version>1.9.0</Version>
+		<AssemblyVersion>1.9.0</AssemblyVersion>
+		<FileVersion>1.9.0</FileVersion>
+		<InformationalVersion>1.9.0</InformationalVersion>
 	</PropertyGroup>
 
-	<ItemGroup>
+	<PropertyGroup>
+		<UseLocalVaudioSource>false</UseLocalVaudioSource>
+
+		<!-- Separate output folders to prevent conflicts with parallel tests -->
+		<IntermediateOutputPath>obj\$(Configuration)-local$(UseLocalVaudioSource)\</IntermediateOutputPath>
+		<OutputPath>bin\$(Configuration)-local$(UseLocalVaudioSource)\</OutputPath>
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(UseLocalVaudioSource)' != 'true'">
 		<Reference Include="vaudio">
 			<HintPath>lib\vaudio.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 
-	<!-- Common C# code across 2D and 3D swapper -->
+	<ItemGroup Condition="'$(UseLocalVaudioSource)' == 'true'">
+		<ProjectReference Include="..\..\vaudio\dotnet\2d\vaudio2d.csproj" />
+	</ItemGroup>
+
+	<!-- Common C# code for both 2D and 3D swappers -->
 	<ItemGroup>
 		<Compile Include="..\common\**\*.cs" LinkBase="common" />
 	</ItemGroup>
 
-	<!-- Omit lib/ from solution explorer -->
+	<!-- Hide lib/ in the solution explorer -->
 	<ItemGroup>
 		<Compile Remove="lib\**" />
 		<EmbeddedResource Remove="lib\**" />
