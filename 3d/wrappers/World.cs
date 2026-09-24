@@ -49,6 +49,22 @@ public partial class World
             return ToDotnet(native.CalculateListenerRelativePan(ToNative(worldVector), listenerPitch, listenerYaw));
     }
 
+    public vaudio.Vector ConvertWorldToListenerDirection(vaudio.Vector worldDirection, float listenerPitch, float listenerYaw)
+    {
+        if (isManaged)
+            return managed.ConvertWorldToListenerDirection(worldDirection, listenerPitch, listenerYaw);
+        else
+            return ToDotnet(native.ConvertWorldToListenerDirection(ToNative(worldDirection), listenerPitch, listenerYaw));
+    }
+
+    public vaudio.Vector ConvertListenerToWorldDirection(vaudio.Vector listenerDirection, float listenerPitch, float listenerYaw)
+    {
+        if (isManaged)
+            return managed.ConvertListenerToWorldDirection(listenerDirection, listenerPitch, listenerYaw);
+        else
+            return ToDotnet(native.ConvertListenerToWorldDirection(ToNative(listenerDirection), listenerPitch, listenerYaw));
+    }
+
     public float CameraPitch
     {
         get
