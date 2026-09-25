@@ -4,6 +4,41 @@ namespace vaudioswapper;
 
 public partial class World
 {
+    vaudio.UnsafeVoxelMaterialMap unsafeVoxelMaterialMap;
+    NativeUnsafeVoxelMaterialMap nativeUnsafeVoxelMaterialMap;
+
+    // Lets one managed map drive both SDKs
+    unsafe sealed class NativeUnsafeVoxelMaterialMap(vaudio.UnsafeVoxelMaterialMap map) : vaudionativewrapper.managed.UnsafeVoxelMaterialMap
+    {
+        public readonly vaudio.UnsafeVoxelMaterialMap map = map;
+
+        public override vaudionativewrapper.MaterialType GetMaterial(void* voxel) => ToNative(map.GetMaterial(voxel));
+
+        public override bool IsSolid(void* voxel) => map.IsSolid(voxel);
+    }
+
+    public vaudio.UnsafeVoxelMaterialMap UnsafeVoxelMaterialMap
+    {
+        get => unsafeVoxelMaterialMap;
+        set
+        {
+            if (isManaged)
+                managed.UnsafeVoxelMaterialMap = value;
+            else
+            {
+                // Reuse the adapter when re-assigning the same map, so the native wrapper re-sends rather than creating a new callback
+                if (value == null)
+                    nativeUnsafeVoxelMaterialMap = null;
+                else if (nativeUnsafeVoxelMaterialMap?.map != value)
+                    nativeUnsafeVoxelMaterialMap = new(value);
+
+                native.UnsafeVoxelMaterialMap = nativeUnsafeVoxelMaterialMap;
+            }
+
+            unsafeVoxelMaterialMap = value;
+        }
+    }
+
     private Primitive ImportPrimitive(vaudio.Primitive e)
     {
         if (e is vaudio.PrismPrimitive p)
