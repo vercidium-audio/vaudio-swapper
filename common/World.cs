@@ -16,6 +16,18 @@ public partial class World
             managed = new();
     }
 
+    public string Name
+    {
+        get => isManaged ? managed.Name : native.Name;
+        set
+        {
+            if (isManaged)
+                managed.Name = value;
+            else
+                native.Name = value;
+        }
+    }
+
     public void Destroy()
     {
         if (isManaged)
@@ -240,8 +252,6 @@ public partial class World
                 native.EmittersOutsideTheWorldAreMuffled = value;
         }
     }
-
-    public bool Initialising => managed?.Initialising ?? native.Initialising;
 
     public int RaysCastThisFrame => managed?.RaysCastThisFrame ?? native.RaysCastThisFrame;
 

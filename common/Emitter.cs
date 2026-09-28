@@ -321,7 +321,7 @@ public unsafe partial class Emitter
         }
     }
 
-    public bool CastsRays => isManaged ? managed.CastsRays : native.CastsRays;
+    public bool CreatesTrails => isManaged ? managed.CreatesTrails : native.CreatesTrails;
 
     public bool WithinWorldBounds => isManaged ? managed.WithinWorldBounds : native.WithinWorldBounds;
 
