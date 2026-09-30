@@ -467,6 +467,54 @@ public unsafe partial class Emitter
         }
     }
 
+    public float MinimumReverbEnergy
+    {
+        get => isManaged ? managed.MinimumReverbEnergy : native.MinimumReverbEnergy;
+        set
+        {
+            if (isManaged)
+                managed.MinimumReverbEnergy = value;
+            else
+                native.MinimumReverbEnergy = value;
+        }
+    }
+
+    public float MinimumOcclusionEnergy
+    {
+        get => isManaged ? managed.MinimumOcclusionEnergy : native.MinimumOcclusionEnergy;
+        set
+        {
+            if (isManaged)
+                managed.MinimumOcclusionEnergy = value;
+            else
+                native.MinimumOcclusionEnergy = value;
+        }
+    }
+
+    public float MinimumAmbientPermeationEnergy
+    {
+        get => isManaged ? managed.MinimumAmbientPermeationEnergy : native.MinimumAmbientPermeationEnergy;
+        set
+        {
+            if (isManaged)
+                managed.MinimumAmbientPermeationEnergy = value;
+            else
+                native.MinimumAmbientPermeationEnergy = value;
+        }
+    }
+
+    public float MinimumAmbientOcclusionEnergy
+    {
+        get => isManaged ? managed.MinimumAmbientOcclusionEnergy : native.MinimumAmbientOcclusionEnergy;
+        set
+        {
+            if (isManaged)
+                managed.MinimumAmbientOcclusionEnergy = value;
+            else
+                native.MinimumAmbientOcclusionEnergy = value;
+        }
+    }
+
     public int ScatteringSeed
     {
         get => isManaged ? managed.ScatteringSeed : native.ScatteringSeed;
