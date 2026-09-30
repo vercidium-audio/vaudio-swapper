@@ -24,8 +24,8 @@ public partial class World
             return new TriangularConePrimitive(triCone);
         else if (e is vaudio.TriangularPrismPrimitive triPrism)
             return new TriangularPrismPrimitive(triPrism);
-        else if (e is vaudio.HalfSpherePrimitive half)
-            return new HalfSpherePrimitive(half);
+        else if (e is vaudio.HemispherePrimitive hemisphere)
+            return new HemispherePrimitive(hemisphere);
         else if (e is vaudio.VoxelPrimitive v)
             return new VoxelPrimitive(v);
         else if (e is vaudio.TrianglePrimitive tri)
