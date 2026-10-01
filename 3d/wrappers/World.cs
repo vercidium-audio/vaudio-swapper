@@ -7,7 +7,7 @@ public partial class World
     vaudio.UnsafeVoxelMaterialMap unsafeVoxelMaterialMap;
     NativeUnsafeVoxelMaterialMap nativeUnsafeVoxelMaterialMap;
 
-    // Lets one managed map drive both SDKs
+    // Allows one managed UnsafeVoxelMaterialMap to drive both SDKs
     unsafe sealed class NativeUnsafeVoxelMaterialMap(vaudio.UnsafeVoxelMaterialMap map) : vaudionativewrapper.managed.UnsafeVoxelMaterialMap
     {
         public readonly vaudio.UnsafeVoxelMaterialMap map = map;
