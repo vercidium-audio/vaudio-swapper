@@ -126,9 +126,7 @@ public unsafe partial class Emitter
             if (isManaged)
                 managed.UserData = value;
             else
-            {
-                throw new InvalidOperationException("Cannot cast managed UserData to native void*");
-            }
+                throw new InvalidOperationException("Cannot assign UserData to a native emitter");
         }
     }
 

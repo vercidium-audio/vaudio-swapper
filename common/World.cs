@@ -273,6 +273,24 @@ public partial class World
         }
     }
 
+    public bool OcclusionRaysLoseEnergyFromWorldBounds
+    {
+        get
+        {
+            if (isManaged)
+                return managed.OcclusionRaysLoseEnergyFromWorldBounds;
+            else
+                return native.OcclusionRaysLoseEnergyFromWorldBounds;
+        }
+        set
+        {
+            if (isManaged)
+                managed.OcclusionRaysLoseEnergyFromWorldBounds = value;
+            else
+                native.OcclusionRaysLoseEnergyFromWorldBounds = value;
+        }
+    }
+
     public int WorkItemCount
     {
         get
