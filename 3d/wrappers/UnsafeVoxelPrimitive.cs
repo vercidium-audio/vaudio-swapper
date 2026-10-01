@@ -69,6 +69,18 @@ public unsafe class UnsafeVoxelPrimitive : Primitive
         }
     }
 
+    public Action OnRemoved
+    {
+        get => isManaged ? managed.OnRemoved : native.OnRemoved;
+        set
+        {
+            if (isManaged)
+                managed.OnRemoved = value;
+            else
+                native.OnRemoved = value;
+        }
+    }
+
     public vaudio.MaterialType GetMaterial(int x, int y, int z) => isManaged ? managed.GetMaterial(x, y, z) : ToDotnet(native.GetMaterial(x, y, z));
 
     public bool IsSolid(int x, int y, int z) => isManaged ? managed.IsSolid(x, y, z) : native.IsSolid(x, y, z);

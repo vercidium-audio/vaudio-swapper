@@ -54,6 +54,18 @@ public unsafe partial class Emitter
         }
     }
 
+    public bool KeepReverbTailAlive
+    {
+        get => isManaged ? managed.KeepReverbTailAlive : native.KeepReverbTailAlive;
+        set
+        {
+            if (isManaged)
+                managed.KeepReverbTailAlive = value;
+            else
+                native.KeepReverbTailAlive = value;
+        }
+    }
+
     public int GroupedEAXIndex => isManaged ? managed.GroupedEAXIndex : native.GroupedEAXIndex;
 
     public float OutsidePercent => isManaged ? managed.OutsidePercent : native.OutsidePercent;
