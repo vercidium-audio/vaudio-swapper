@@ -27,12 +27,28 @@ public partial class World
         }
     }
 
-    public vaudio.Vector CalculateListenerRelativePan(vaudio.Vector worldVector, float listenerYaw)
+    public vaudio.Vector CalculateListenerRelativePan(vaudio.Vector worldVector, float listenerRotation)
     {
         if (isManaged)
-            return managed.CalculateListenerRelativePan(worldVector, listenerYaw);
+            return managed.CalculateListenerRelativePan(worldVector, listenerRotation);
         else
-            return ToDotnet(native.CalculateListenerRelativePan(ToNative(worldVector), listenerYaw));
+            return ToDotnet(native.CalculateListenerRelativePan(ToNative(worldVector), listenerRotation));
+    }
+
+    public vaudio.Vector ConvertWorldToListenerDirection(vaudio.Vector worldDirection, float listenerRotation)
+    {
+        if (isManaged)
+            return managed.ConvertWorldToListenerDirection(worldDirection, listenerRotation);
+        else
+            return ToDotnet(native.ConvertWorldToListenerDirection(ToNative(worldDirection), listenerRotation));
+    }
+
+    public vaudio.Vector ConvertListenerToWorldDirection(vaudio.Vector listenerDirection, float listenerRotation)
+    {
+        if (isManaged)
+            return managed.ConvertListenerToWorldDirection(listenerDirection, listenerRotation);
+        else
+            return ToDotnet(native.ConvertListenerToWorldDirection(ToNative(listenerDirection), listenerRotation));
     }
 
     public float CameraRotation

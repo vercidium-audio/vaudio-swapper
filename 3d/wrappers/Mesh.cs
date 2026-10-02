@@ -2,8 +2,8 @@ namespace vaudioswapper;
 
 public class Mesh
 {
-    internal readonly vaudio.Mesh managed;
-    internal readonly vaudionativewrapper.managed.Mesh native;
+    public readonly vaudio.Mesh managed;
+    public readonly vaudionativewrapper.managed.Mesh native;
 
     public Mesh(vaudio.Vector[] vertices, vaudio.Vector minBounds, vaudio.Vector maxBounds) : this(USE_NATIVE, vertices, minBounds, maxBounds) { }
 

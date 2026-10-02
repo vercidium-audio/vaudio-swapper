@@ -54,6 +54,18 @@ public unsafe partial class Emitter
         }
     }
 
+    public bool KeepReverbTailAlive
+    {
+        get => isManaged ? managed.KeepReverbTailAlive : native.KeepReverbTailAlive;
+        set
+        {
+            if (isManaged)
+                managed.KeepReverbTailAlive = value;
+            else
+                native.KeepReverbTailAlive = value;
+        }
+    }
+
     public int GroupedEAXIndex => isManaged ? managed.GroupedEAXIndex : native.GroupedEAXIndex;
 
     public float OutsidePercent => isManaged ? managed.OutsidePercent : native.OutsidePercent;
@@ -126,9 +138,7 @@ public unsafe partial class Emitter
             if (isManaged)
                 managed.UserData = value;
             else
-            {
-                throw new InvalidOperationException("Cannot cast managed UserData to native void*");
-            }
+                throw new InvalidOperationException("Cannot assign UserData to a native emitter");
         }
     }
 
@@ -321,7 +331,7 @@ public unsafe partial class Emitter
         }
     }
 
-    public bool CastsRays => isManaged ? managed.CastsRays : native.CastsRays;
+    public bool CreatesTrails => isManaged ? managed.CreatesTrails : native.CreatesTrails;
 
     public bool WithinWorldBounds => isManaged ? managed.WithinWorldBounds : native.WithinWorldBounds;
 
@@ -464,6 +474,54 @@ public unsafe partial class Emitter
                 managed.MinimumPermeationEnergy = value;
             else
                 native.MinimumPermeationEnergy = value;
+        }
+    }
+
+    public float MinimumReverbEnergy
+    {
+        get => isManaged ? managed.MinimumReverbEnergy : native.MinimumReverbEnergy;
+        set
+        {
+            if (isManaged)
+                managed.MinimumReverbEnergy = value;
+            else
+                native.MinimumReverbEnergy = value;
+        }
+    }
+
+    public float MinimumOcclusionEnergy
+    {
+        get => isManaged ? managed.MinimumOcclusionEnergy : native.MinimumOcclusionEnergy;
+        set
+        {
+            if (isManaged)
+                managed.MinimumOcclusionEnergy = value;
+            else
+                native.MinimumOcclusionEnergy = value;
+        }
+    }
+
+    public float MinimumAmbientPermeationEnergy
+    {
+        get => isManaged ? managed.MinimumAmbientPermeationEnergy : native.MinimumAmbientPermeationEnergy;
+        set
+        {
+            if (isManaged)
+                managed.MinimumAmbientPermeationEnergy = value;
+            else
+                native.MinimumAmbientPermeationEnergy = value;
+        }
+    }
+
+    public float MinimumAmbientOcclusionEnergy
+    {
+        get => isManaged ? managed.MinimumAmbientOcclusionEnergy : native.MinimumAmbientOcclusionEnergy;
+        set
+        {
+            if (isManaged)
+                managed.MinimumAmbientOcclusionEnergy = value;
+            else
+                native.MinimumAmbientOcclusionEnergy = value;
         }
     }
 

@@ -16,6 +16,18 @@ public partial class World
             managed = new();
     }
 
+    public string Name
+    {
+        get => isManaged ? managed.Name : native.Name;
+        set
+        {
+            if (isManaged)
+                managed.Name = value;
+            else
+                native.Name = value;
+        }
+    }
+
     public void Destroy()
     {
         if (isManaged)
@@ -241,8 +253,6 @@ public partial class World
         }
     }
 
-    public bool Initialising => managed?.Initialising ?? native.Initialising;
-
     public int RaysCastThisFrame => managed?.RaysCastThisFrame ?? native.RaysCastThisFrame;
 
     public int MaximumGroupedEAXCount
@@ -260,6 +270,24 @@ public partial class World
                 managed.MaximumGroupedEAXCount = value;
             else
                 native.MaximumGroupedEAXCount = value;
+        }
+    }
+
+    public bool OcclusionRaysLoseEnergyFromWorldBounds
+    {
+        get
+        {
+            if (isManaged)
+                return managed.OcclusionRaysLoseEnergyFromWorldBounds;
+            else
+                return native.OcclusionRaysLoseEnergyFromWorldBounds;
+        }
+        set
+        {
+            if (isManaged)
+                managed.OcclusionRaysLoseEnergyFromWorldBounds = value;
+            else
+                native.OcclusionRaysLoseEnergyFromWorldBounds = value;
         }
     }
 

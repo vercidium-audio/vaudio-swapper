@@ -4,6 +4,41 @@ namespace vaudioswapper;
 
 public partial class World
 {
+    vaudio.UnsafeVoxelMaterialMap unsafeVoxelMaterialMap;
+    NativeUnsafeVoxelMaterialMap nativeUnsafeVoxelMaterialMap;
+
+    // Allows one managed UnsafeVoxelMaterialMap to drive both SDKs
+    unsafe sealed class NativeUnsafeVoxelMaterialMap(vaudio.UnsafeVoxelMaterialMap map) : vaudionativewrapper.managed.UnsafeVoxelMaterialMap
+    {
+        public readonly vaudio.UnsafeVoxelMaterialMap map = map;
+
+        public override vaudionativewrapper.MaterialType GetMaterial(void* voxel) => ToNative(map.GetMaterial(voxel));
+
+        public override bool IsSolid(void* voxel) => map.IsSolid(voxel);
+    }
+
+    public vaudio.UnsafeVoxelMaterialMap UnsafeVoxelMaterialMap
+    {
+        get => unsafeVoxelMaterialMap;
+        set
+        {
+            if (isManaged)
+                managed.UnsafeVoxelMaterialMap = value;
+            else
+            {
+                // Reuse the adapter when re-assigning the same map, so the native wrapper re-sends rather than creating a new callback
+                if (value == null)
+                    nativeUnsafeVoxelMaterialMap = null;
+                else if (nativeUnsafeVoxelMaterialMap?.map != value)
+                    nativeUnsafeVoxelMaterialMap = new(value);
+
+                native.UnsafeVoxelMaterialMap = nativeUnsafeVoxelMaterialMap;
+            }
+
+            unsafeVoxelMaterialMap = value;
+        }
+    }
+
     private Primitive ImportPrimitive(vaudio.Primitive e)
     {
         if (e is vaudio.PrismPrimitive p)
@@ -47,6 +82,22 @@ public partial class World
             return managed.CalculateListenerRelativePan(worldVector, listenerPitch, listenerYaw);
         else
             return ToDotnet(native.CalculateListenerRelativePan(ToNative(worldVector), listenerPitch, listenerYaw));
+    }
+
+    public vaudio.Vector ConvertWorldToListenerDirection(vaudio.Vector worldDirection, float listenerPitch, float listenerYaw)
+    {
+        if (isManaged)
+            return managed.ConvertWorldToListenerDirection(worldDirection, listenerPitch, listenerYaw);
+        else
+            return ToDotnet(native.ConvertWorldToListenerDirection(ToNative(worldDirection), listenerPitch, listenerYaw));
+    }
+
+    public vaudio.Vector ConvertListenerToWorldDirection(vaudio.Vector listenerDirection, float listenerPitch, float listenerYaw)
+    {
+        if (isManaged)
+            return managed.ConvertListenerToWorldDirection(listenerDirection, listenerPitch, listenerYaw);
+        else
+            return ToDotnet(native.ConvertListenerToWorldDirection(ToNative(listenerDirection), listenerPitch, listenerYaw));
     }
 
     public float CameraPitch
