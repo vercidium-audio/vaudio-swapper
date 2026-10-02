@@ -43,6 +43,6 @@
 
 	<!-- Sibling repository -->
 	<ItemGroup>
-		<ProjectReference Include="..\..\vaudio-native-wrapper-2d\vaudio-native-wrapper-2d.csproj" />
+		<ProjectReference Include="..\..\vaudio-native-wrapper\2d\vaudio-native-wrapper-2d.csproj" />
 	</ItemGroup>
 </Project>

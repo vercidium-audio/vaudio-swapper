@@ -12,7 +12,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<UseLocalVaudioSource>true</UseLocalVaudioSource>
+		<UseLocalVaudioSource>false</UseLocalVaudioSource>
 
 		<!-- Separate output folders to prevent conflicts with parallel tests -->
 		<IntermediateOutputPath>obj\$(Configuration)-local$(UseLocalVaudioSource)\</IntermediateOutputPath>
@@ -43,6 +43,6 @@
 
 	<!-- Sibling repository -->
 	<ItemGroup>
-		<ProjectReference Include="..\..\vaudio-native-wrapper-3d\vaudio-native-wrapper-3d.csproj" />
+		<ProjectReference Include="..\..\vaudio-native-wrapper\3d\vaudio-native-wrapper-3d.csproj" />
 	</ItemGroup>
 </Project>
