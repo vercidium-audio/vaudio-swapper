@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace vaudioswapper;
 
 public unsafe partial class Emitter
@@ -815,4 +817,53 @@ public unsafe partial class Emitter
             }
         }
     }
+
+    public bool ClusteringEnabled
+    {
+        get => isManaged ? managed.ClusteringEnabled : native.ClusteringEnabled;
+        set
+        {
+            if (isManaged)
+                managed.ClusteringEnabled = value;
+            else
+                native.ClusteringEnabled = value;
+        }
+    }
+
+    public float ClusteringDistance
+    {
+        get => isManaged ? managed.ClusteringDistance : native.ClusteringDistance;
+        set
+        {
+            if (isManaged)
+                managed.ClusteringDistance = value;
+            else
+                native.ClusteringDistance = value;
+        }
+    }
+
+    public bool TargetClusteringEnabled
+    {
+        get => isManaged ? managed.TargetClusteringEnabled : native.TargetClusteringEnabled;
+        set
+        {
+            if (isManaged)
+                managed.TargetClusteringEnabled = value;
+            else
+                native.TargetClusteringEnabled = value;
+        }
+    }
+
+    public float TargetClusteringDistance
+    {
+        get => isManaged ? managed.TargetClusteringDistance : native.TargetClusteringDistance;
+        set
+        {
+            if (isManaged)
+                managed.TargetClusteringDistance = value;
+            else
+                native.TargetClusteringDistance = value;
+        }
+    }
+
 }

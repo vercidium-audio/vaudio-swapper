@@ -12,7 +12,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<UseLocalVaudioSource>false</UseLocalVaudioSource>
+		<UseLocalVaudioSource>true</UseLocalVaudioSource>
 
 		<!-- Separate output folders to prevent conflicts with parallel tests -->
 		<IntermediateOutputPath>obj\$(Configuration)-local$(UseLocalVaudioSource)\</IntermediateOutputPath>
