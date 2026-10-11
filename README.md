@@ -7,7 +7,7 @@ This is a .NET 'swapper' that wraps both Vercidium Audio C# and C SDKs:
 ## Setup
 
 This repository requires:
-- Vercidium Audio v1.10.0. Download it from [vercidium.com](https://vercidium.com)
+- Vercidium Audio v1.11.0. Download it from [vercidium.com](https://vercidium.com)
 - [vaudio-native-wrapper](https://github.com/vercidium-audio/vaudio-native-wrapper) must be cloned alongside this repository
 
 > Please note that the Vercidium Audio SDK is not free for commercial use. See [vercidium.com/eula](https://vercidium.com/eula)
