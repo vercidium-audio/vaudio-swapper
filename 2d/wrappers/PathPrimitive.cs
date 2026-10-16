@@ -84,16 +84,4 @@ public class PathPrimitive : Primitive
                 native.scale = ToNative(value);
         }
     }
-
-    public bool UseFlatTransmission
-    {
-        get => isManaged ? managed.UseFlatTransmission : native.UseFlatTransmission;
-        set
-        {
-            if (isManaged)
-                managed.UseFlatTransmission = value;
-            else
-                native.UseFlatTransmission = value;
-        }
-    }
 }

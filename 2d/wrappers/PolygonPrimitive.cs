@@ -85,18 +85,6 @@ public class PolygonPrimitive : Primitive
         }
     }
 
-    public bool UseFlatTransmission
-    {
-        get => isManaged ? managed.UseFlatTransmission : native.UseFlatTransmission;
-        set
-        {
-            if (isManaged)
-                managed.UseFlatTransmission = value;
-            else
-                native.UseFlatTransmission = value;
-        }
-    }
-
     public bool enclosed
     {
         get => isManaged ? managed.enclosed : native.enclosed;
