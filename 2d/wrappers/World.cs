@@ -12,6 +12,8 @@ public partial class World
             return new CirclePrimitive(circle);
         else if (e is vaudio.OvalPrimitive oval)
             return new OvalPrimitive(oval);
+        else if (e is vaudio.CapsulePrimitive capsule)
+            return new CapsulePrimitive(capsule);
         else if (e is vaudio.BoxPrimitive box)
             return new BoxPrimitive(box);
         else if (e is vaudio.PolygonPrimitive polygon)
