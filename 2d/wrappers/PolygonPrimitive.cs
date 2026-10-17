@@ -5,24 +5,23 @@ public class PolygonPrimitive : Primitive
     public new vaudio.PolygonPrimitive managed => base.managed as vaudio.PolygonPrimitive;
     public new vaudionativewrapper.managed.PolygonPrimitive native => base.native as vaudionativewrapper.managed.PolygonPrimitive;
 
-    public PolygonPrimitive(List<vaudio.Vector> points) : this(USE_NATIVE, points) { }
+    Polygon _polygon;
 
-    public PolygonPrimitive(bool useNative, List<vaudio.Vector> points)
+    // Native or managed is decided by which SDK the polygon was created with
+    public PolygonPrimitive(Polygon polygon)
     {
-        if (useNative)
-            base.native = new vaudionativewrapper.managed.PolygonPrimitive(ToNative(points));
+        if (polygon.native != null)
+            base.native = new vaudionativewrapper.managed.PolygonPrimitive(polygon.native);
         else
-            base.managed = new vaudio.PolygonPrimitive { points = points };
-    }
+            base.managed = new vaudio.PolygonPrimitive(polygon.managed);
 
-    public PolygonPrimitive(vaudionativewrapper.managed.PolygonPrimitive polygon)
-    {
-        base.native = polygon;
+        _polygon = polygon;
     }
 
     public PolygonPrimitive(vaudio.PolygonPrimitive polygon)
     {
         base.managed = polygon;
+        _polygon = new Polygon(polygon.polygon);
     }
 
     public vaudio.MaterialType material
@@ -37,15 +36,17 @@ public class PolygonPrimitive : Primitive
         }
     }
 
-    public List<vaudio.Vector> points
+    public Polygon polygon
     {
-        get => isManaged ? managed.points : new List<vaudio.Vector>(ToDotnet(native.points));
+        get => _polygon;
         set
         {
             if (isManaged)
-                managed.points = value;
+                managed.polygon = value.managed;
             else
-                native.points = ToNative(value).ToArray();
+                native.polygon = value.native;
+
+            _polygon = value;
         }
     }
 
