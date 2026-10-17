@@ -5,24 +5,23 @@ public class PathPrimitive : Primitive
     public new vaudio.PathPrimitive managed => base.managed as vaudio.PathPrimitive;
     public new vaudionativewrapper.managed.PathPrimitive native => base.native as vaudionativewrapper.managed.PathPrimitive;
 
-    public PathPrimitive(string svgPath) : this(USE_NATIVE, svgPath) { }
+    Path _svgPath;
 
-    public PathPrimitive(bool useNative, string svgPath)
+    // Native or managed is decided by which SDK the path was created with
+    public PathPrimitive(Path svgPath)
     {
-        if (useNative)
-            base.native = new vaudionativewrapper.managed.PathPrimitive(svgPath);
+        if (svgPath.native != null)
+            base.native = new vaudionativewrapper.managed.PathPrimitive(svgPath.native);
         else
-            base.managed = new vaudio.PathPrimitive { svgPath = svgPath };
-    }
+            base.managed = new vaudio.PathPrimitive(svgPath.managed);
 
-    public PathPrimitive(vaudionativewrapper.managed.PathPrimitive path)
-    {
-        base.native = path;
+        _svgPath = svgPath;
     }
 
     public PathPrimitive(vaudio.PathPrimitive path)
     {
         base.managed = path;
+        _svgPath = new Path(path.svgPath);
     }
 
     public vaudio.MaterialType material
@@ -37,15 +36,17 @@ public class PathPrimitive : Primitive
         }
     }
 
-    public string svgPath
+    public Path svgPath
     {
-        get => isManaged ? managed.svgPath : native.svgPath;
+        get => _svgPath;
         set
         {
             if (isManaged)
-                managed.svgPath = value;
+                managed.svgPath = value.managed;
             else
-                native.svgPath = value;
+                native.svgPath = value.native;
+
+            _svgPath = value;
         }
     }
 
