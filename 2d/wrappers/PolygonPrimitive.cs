@@ -18,6 +18,22 @@ public class PolygonPrimitive : Primitive
         _polygon = polygon;
     }
 
+    public PolygonPrimitive(vaudio.Vector[] points) : this(USE_NATIVE, points) { }
+
+    public PolygonPrimitive(bool useNative, vaudio.Vector[] points)
+    {
+        if (useNative)
+        {
+            base.native = new vaudionativewrapper.managed.PolygonPrimitive(ToNative(points));
+            _polygon = new Polygon(native.polygon);
+        }
+        else
+        {
+            base.managed = new vaudio.PolygonPrimitive(points);
+            _polygon = new Polygon(managed.polygon);
+        }
+    }
+
     public PolygonPrimitive(vaudio.PolygonPrimitive polygon)
     {
         base.managed = polygon;

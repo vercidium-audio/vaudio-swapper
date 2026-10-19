@@ -30,6 +30,11 @@ public class Polygon
         managed = polygon;
     }
 
+    internal Polygon(vaudionativewrapper.managed.Polygon polygon)
+    {
+        native = polygon;
+    }
+
     public IReadOnlyList<vaudio.Vector> points => managed != null ? managed.points : ToDotnet(native.points);
 
     public void Destroy()

@@ -18,6 +18,22 @@ public class PathPrimitive : Primitive
         _svgPath = svgPath;
     }
 
+    public PathPrimitive(string svgPath) : this(USE_NATIVE, svgPath) { }
+
+    public PathPrimitive(bool useNative, string svgPath)
+    {
+        if (useNative)
+        {
+            base.native = new vaudionativewrapper.managed.PathPrimitive(svgPath);
+            _svgPath = new Path(native.svgPath);
+        }
+        else
+        {
+            base.managed = new vaudio.PathPrimitive(svgPath);
+            _svgPath = new Path(managed.svgPath);
+        }
+    }
+
     public PathPrimitive(vaudio.PathPrimitive path)
     {
         base.managed = path;

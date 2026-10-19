@@ -20,6 +20,11 @@ public class Path
         managed = path;
     }
 
+    internal Path(vaudionativewrapper.managed.Path path)
+    {
+        native = path;
+    }
+
     public string data => managed != null ? managed.data : native.data;
 
     public bool closed => managed != null ? managed.closed : native.closed;
