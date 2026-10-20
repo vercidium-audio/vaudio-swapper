@@ -1,5 +1,3 @@
-using System.Diagnostics;
-
 namespace vaudioswapper;
 
 public unsafe partial class Emitter
