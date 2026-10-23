@@ -69,6 +69,8 @@ public partial class World
             return new DiskPrimitive(disk);
         else if (e is vaudio.PlanePrimitive plane)
             return new PlanePrimitive(plane);
+        else if (e is vaudio.HeightmapPrimitive heightmap)
+            return new HeightmapPrimitive(heightmap);
         else
         {
             Debug.Assert(false);
