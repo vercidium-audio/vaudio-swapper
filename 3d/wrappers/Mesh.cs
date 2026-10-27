@@ -29,6 +29,16 @@ public class Mesh
             managed = new vaudio.Mesh(vertices, minBounds, maxBounds);
     }
 
+    public Mesh(vaudio.Mesh managed)
+    {
+        this.managed = managed;
+    }
+
+    public Mesh(vaudionativewrapper.managed.Mesh native)
+    {
+        this.native = native;
+    }
+
     public void Destroy()
     {
         native?.Destroy();
