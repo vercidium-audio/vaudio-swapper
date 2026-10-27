@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace vaudioswapper;
 
@@ -6,6 +7,8 @@ internal static partial class Constants
 {
     internal static List<vaudionativewrapper.Vector> ToNative(List<vaudio.Vector> v) => Unsafe.As<List<vaudio.Vector>, List<vaudionativewrapper.Vector>>(ref v);
     internal static List<vaudio.Vector> ToDotnet(List<vaudionativewrapper.Vector> v) => Unsafe.As<List<vaudionativewrapper.Vector>, List<vaudio.Vector>>(ref v);
+
+    internal static ReadOnlySpan<vaudionativewrapper.Vector> ToNative(ReadOnlySpan<vaudio.Vector> v) => MemoryMarshal.Cast<vaudio.Vector, vaudionativewrapper.Vector>(v);
 
     internal static vaudionativewrapper.Vector ToNative(vaudio.Vector v) => new(v.X, v.Y, v.Z);
     internal static vaudio.Vector ToDotnet(vaudionativewrapper.Vector v) => new(v.X, v.Y, v.Z);
