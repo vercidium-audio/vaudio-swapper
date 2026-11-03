@@ -42,6 +42,18 @@ public unsafe partial class Emitter
         get => isManaged ? managed.PendingRemoval : native.PendingRemoval;
     }
 
+    public bool Suspended
+    {
+        get => isManaged ? managed.Suspended : native.Suspended;
+        set
+        {
+            if (isManaged)
+                managed.Suspended = value;
+            else
+                native.Suspended = value;
+        }
+    }
+
     public bool AffectsGroupedEAX
     {
         get => isManaged ? managed.AffectsGroupedEAX : native.AffectsGroupedEAX;
