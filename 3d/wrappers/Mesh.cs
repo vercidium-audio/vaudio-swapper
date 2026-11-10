@@ -33,16 +33,6 @@ public class Mesh
         native = mesh;
     }
 
-    public Mesh(vaudio.Mesh managed)
-    {
-        this.managed = managed;
-    }
-
-    public Mesh(vaudionativewrapper.managed.Mesh native)
-    {
-        this.native = native;
-    }
-
     public void Destroy()
     {
         native?.Destroy();

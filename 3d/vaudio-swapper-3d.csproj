@@ -5,10 +5,10 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<Configurations>Debug;Release</Configurations>
 
-		<Version>1.11.0</Version>
-		<AssemblyVersion>1.11.0</AssemblyVersion>
-		<FileVersion>1.11.0</FileVersion>
-		<InformationalVersion>1.11.0</InformationalVersion>
+		<Version>1.11.1</Version>
+		<AssemblyVersion>1.11.1</AssemblyVersion>
+		<FileVersion>1.11.1</FileVersion>
+		<InformationalVersion>1.11.1</InformationalVersion>
 	</PropertyGroup>
 
 	<PropertyGroup>

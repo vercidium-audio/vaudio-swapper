@@ -69,8 +69,6 @@ public class MeshPrimitive : Primitive
         }
     }
 
-    public Mesh mesh => isManaged ? new Mesh(managed.mesh) : new Mesh(native.mesh);
-
     public vaudio.Matrix transform
     {
         get => isManaged ? managed.transform : ToDotnet(native.transform);
