@@ -35,6 +35,7 @@ public class Polygon
         native = polygon;
     }
 
+    /// <summary>Local-space points, before rotation, scale and position are applied</summary>
     public IReadOnlyList<vaudio.Vector> points => managed != null ? managed.points : ToDotnet(native.points);
 
     public void Destroy()

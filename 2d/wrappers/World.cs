@@ -53,6 +53,7 @@ public partial class World
             return ToDotnet(native.ConvertListenerToWorldDirection(ToNative(listenerDirection), listenerRotation));
     }
 
+    /// <summary>The rotation of the camera in the debug window (dev build only)</summary>
     public float CameraRotation
     {
         get
@@ -68,6 +69,7 @@ public partial class World
         }
     }
 
+    /// <summary>The camera zoom factor in the debug window (dev build only)</summary>
     public float CameraZoom
     {
         get

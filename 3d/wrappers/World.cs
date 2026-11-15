@@ -17,6 +17,10 @@ public partial class World
         public override bool IsSolid(void* voxel) => map.IsSolid(voxel);
     }
 
+    /// <summary>
+    /// Converts a voxel in a UnsafeVoxelPrimitive to a MaterialType.<br/>
+    /// If the mapping changes, assign it here again, and all rays that intersect with UnsafeVoxelPrimitives will be re-cast.
+    /// </summary>
     public vaudio.UnsafeVoxelMaterialMap UnsafeVoxelMaterialMap
     {
         get => unsafeVoxelMaterialMap;
@@ -102,6 +106,7 @@ public partial class World
             return ToDotnet(native.ConvertListenerToWorldDirection(ToNative(listenerDirection), listenerPitch, listenerYaw));
     }
 
+    /// <summary>The pitch of the camera in the debug window (dev build only)</summary>
     public float CameraPitch
     {
         get
@@ -117,6 +122,7 @@ public partial class World
         }
     }
 
+    /// <summary>The yaw of the camera in the debug window (dev build only)</summary>
     public float CameraYaw
     {
         get
@@ -132,6 +138,7 @@ public partial class World
         }
     }
 
+    /// <summary>The vertical field of view (in radians) of the camera in the debug window (dev build only)</summary>
     public float FieldOfView
     {
         get

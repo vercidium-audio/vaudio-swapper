@@ -5,8 +5,10 @@ public unsafe class UnsafeVoxelPrimitive : Primitive
     public new vaudio.UnsafeVoxelPrimitive managed => base.managed as vaudio.UnsafeVoxelPrimitive;
     public new vaudionativewrapper.managed.UnsafeVoxelPrimitive native => base.native as vaudionativewrapper.managed.UnsafeVoxelPrimitive;
 
+    /// <summary>Pointer to the first voxel. Owned by the caller</summary>
     public readonly void* data;
     public readonly int width, height, depth;
+    /// <summary>Size of each voxel in bytes</summary>
     public readonly int stride;
     public readonly int xPitch, yPitch, zPitch;
 
@@ -33,6 +35,7 @@ public unsafe class UnsafeVoxelPrimitive : Primitive
             base.managed = new vaudio.UnsafeVoxelPrimitive(data, width, height, depth, stride, xPitch, yPitch, zPitch);
     }
 
+    /// <summary>Controls the amount of energy lost when rays bounce off this primitive and pass through it</summary>
     public vaudio.MaterialType material
     {
         get => isManaged ? managed.material : ToDotnet(native.material);
@@ -45,6 +48,7 @@ public unsafe class UnsafeVoxelPrimitive : Primitive
         }
     }
 
+    /// <summary>Scale of the voxels</summary>
     public float scale
     {
         get => isManaged ? managed.scale : native.scale;
@@ -57,6 +61,7 @@ public unsafe class UnsafeVoxelPrimitive : Primitive
         }
     }
 
+    /// <summary>Must only contain rotation and translation components, not scale</summary>
     public vaudio.Matrix transform
     {
         get => isManaged ? managed.transform : ToDotnet(native.transform);
@@ -69,6 +74,10 @@ public unsafe class UnsafeVoxelPrimitive : Primitive
         }
     }
 
+    /// <summary>
+    /// Invoked on the main thread once this primitive has been removed from its world and the raytracing threads no longer use its voxel data.<br/>
+    /// This is invoked by World.Update, or by World.RemovePrimitive if this primitive was never sent to the raytracing threads.
+    /// </summary>
     public Action OnRemoved
     {
         get => isManaged ? managed.OnRemoved : native.OnRemoved;

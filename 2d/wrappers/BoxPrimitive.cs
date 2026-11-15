@@ -25,6 +25,7 @@ public class BoxPrimitive : Primitive
         base.managed = box;
     }
 
+    /// <summary>Controls the amount of energy lost when rays bounce off this primitive and pass through it</summary>
     public vaudio.MaterialType material
     {
         get => isManaged ? managed.material : ToDotnet(native.material);
@@ -37,6 +38,7 @@ public class BoxPrimitive : Primitive
         }
     }
 
+    /// <summary>Center of the box in world space</summary>
     public vaudio.Vector position
     {
         get => isManaged ? managed.position : ToDotnet(native.position);
@@ -49,6 +51,7 @@ public class BoxPrimitive : Primitive
         }
     }
 
+    /// <summary>Size of the box</summary>
     public vaudio.Vector size
     {
         get => isManaged ? managed.size : ToDotnet(native.size);
@@ -61,6 +64,7 @@ public class BoxPrimitive : Primitive
         }
     }
 
+    /// <summary>Rotation of the box in radians</summary>
     public float rotation
     {
         get => isManaged ? managed.rotation : native.rotation;

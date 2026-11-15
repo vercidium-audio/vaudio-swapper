@@ -29,6 +29,7 @@ public class HeightmapPrimitive : Primitive
         base.managed = prim;
     }
 
+    /// <summary>Controls the amount of energy lost when rays bounce off this primitive and pass through it</summary>
     public vaudio.MaterialType material
     {
         get => isManaged ? managed.material : ToDotnet(native.material);
@@ -41,6 +42,7 @@ public class HeightmapPrimitive : Primitive
         }
     }
 
+    /// <summary>Scale of each local axis: X is the distance between adjacent samples along local X, Y multiplies every height, and Z is the distance between adjacent samples along local Z. Defaults to (1, 1, 1)</summary>
     public vaudio.Vector scale
     {
         get => isManaged ? managed.scale : ToDotnet(native.scale);
@@ -53,6 +55,7 @@ public class HeightmapPrimitive : Primitive
         }
     }
 
+    /// <summary>Must only contain rotation and translation components, not scale. Use scale instead</summary>
     public vaudio.Matrix transform
     {
         get => isManaged ? managed.transform : ToDotnet(native.transform);
@@ -65,11 +68,15 @@ public class HeightmapPrimitive : Primitive
         }
     }
 
+    /// <summary>Number of samples along local X</summary>
     public int sizeX => isManaged ? managed.sizeX : native.sizeX;
 
+    /// <summary>Number of samples along local Z</summary>
     public int sizeY => isManaged ? managed.sizeY : native.sizeY;
 
+    /// <summary>The heightmap's copy of the heights, sizeX * sizeY values in row-major order</summary>
     public ReadOnlySpan<float> heights => isManaged ? managed.heights : native.heights;
 
+    /// <summary>The heightmap's copy of the holes, (sizeX - 1) * (sizeY - 1) values in row-major order. Empty if it has no holes</summary>
     public ReadOnlySpan<bool> holes => isManaged ? managed.holes : native.holes;
 }

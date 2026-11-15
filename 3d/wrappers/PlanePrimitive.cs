@@ -25,6 +25,7 @@ public class PlanePrimitive : Primitive
         base.managed = prim;
     }
 
+    /// <summary>Controls the amount of energy lost when rays bounce off this primitive and pass through it</summary>
     public vaudio.MaterialType material
     {
         get => isManaged ? managed.material : ToDotnet(native.material);
@@ -37,6 +38,7 @@ public class PlanePrimitive : Primitive
         }
     }
 
+    /// <summary>Width of the plane</summary>
     public float width
     {
         get => isManaged ? managed.width : native.width;
@@ -49,6 +51,7 @@ public class PlanePrimitive : Primitive
         }
     }
 
+    /// <summary>Height of the plane</summary>
     public float height
     {
         get => isManaged ? managed.height : native.height;
@@ -61,6 +64,7 @@ public class PlanePrimitive : Primitive
         }
     }
 
+    /// <summary>Must only contain rotation and translation components, not scale</summary>
     public vaudio.Matrix transform
     {
         get => isManaged ? managed.transform : ToDotnet(native.transform);

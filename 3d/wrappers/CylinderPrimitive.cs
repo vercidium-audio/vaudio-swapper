@@ -25,6 +25,7 @@ public class CylinderPrimitive : Primitive
         base.managed = prim;
     }
 
+    /// <summary>Controls the amount of energy lost when rays bounce off this primitive and pass through it</summary>
     public vaudio.MaterialType material
     {
         get => isManaged ? managed.material : ToDotnet(native.material);
@@ -37,6 +38,7 @@ public class CylinderPrimitive : Primitive
         }
     }
 
+    /// <summary>Radius of the cylinder</summary>
     public float radius
     {
         get => isManaged ? managed.radius : native.radius;
@@ -49,6 +51,7 @@ public class CylinderPrimitive : Primitive
         }
     }
 
+    /// <summary>Length of the cylinder body</summary>
     public float length
     {
         get => isManaged ? managed.length : native.length;
@@ -61,6 +64,7 @@ public class CylinderPrimitive : Primitive
         }
     }
 
+    /// <summary>Must only contain rotation and translation components, not scale</summary>
     public vaudio.Matrix transform
     {
         get => isManaged ? managed.transform : ToDotnet(native.transform);

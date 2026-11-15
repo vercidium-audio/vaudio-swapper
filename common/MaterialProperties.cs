@@ -8,6 +8,7 @@ public class MaterialProperties
 
     internal static MaterialProperties FromNative(IntPtr world, int id) => new() { native = new(world, id) };
 
+    /// <summary>Percentage of low-frequency energy that is lost on each bounce</summary>
     public float AbsorptionLF
     {
         get => isManaged ? managed.AbsorptionLF : native.AbsorptionLF;
@@ -20,6 +21,7 @@ public class MaterialProperties
         }
     }
 
+    /// <summary>Percentage of high-frequency energy that is lost on each bounce</summary>
     public float AbsorptionHF
     {
         get => isManaged ? managed.AbsorptionHF : native.AbsorptionHF;
@@ -32,6 +34,7 @@ public class MaterialProperties
         }
     }
 
+    /// <summary>Scattering strength, where 0.0 has no scattering and 1.0 skews the reflected ray direction by up to 90 degrees</summary>
     public float Scattering
     {
         get => isManaged ? managed.Scattering : native.Scattering;
@@ -44,6 +47,7 @@ public class MaterialProperties
         }
     }
 
+    /// <summary>How many meters a ray must travel through a primitive before it loses all low-frequency energy</summary>
     public float TransmissionLF
     {
         get => isManaged ? managed.TransmissionLF : native.TransmissionLF;
@@ -56,6 +60,7 @@ public class MaterialProperties
         }
     }
 
+    /// <summary>How many meters a ray must travel through a primitive before it loses all high-frequency energy</summary>
     public float TransmissionHF
     {
         get => isManaged ? managed.TransmissionHF : native.TransmissionHF;
@@ -68,6 +73,7 @@ public class MaterialProperties
         }
     }
 
+    /// <summary>Percentage of low-frequency energy lost when a ray touches a primitive with Primitive.UseFlatTransmission set to true, instead of calculating how long the ray spent inside it</summary>
     public float FlatTransmissionLF
     {
         get => isManaged ? managed.FlatTransmissionLF : native.FlatTransmissionLF;
@@ -80,6 +86,7 @@ public class MaterialProperties
         }
     }
 
+    /// <summary>Percentage of high-frequency energy lost when a ray touches a primitive with Primitive.UseFlatTransmission set to true, instead of calculating how long the ray spent inside it</summary>
     public float FlatTransmissionHF
     {
         get => isManaged ? managed.FlatTransmissionHF : native.FlatTransmissionHF;

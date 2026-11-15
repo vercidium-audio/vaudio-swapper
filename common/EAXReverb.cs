@@ -17,6 +17,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Delay before early reflections are heard, in seconds (0–0.3)</summary>
     public float ReflectionsDelay
     {
         get
@@ -28,6 +29,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Modal density of the late reverberation (0–1)</summary>
     public float Density
     {
         get
@@ -39,6 +41,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Echo diffusion of the late reverberation (0–1)</summary>
     public float Diffusion
     {
         get
@@ -50,6 +53,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Low-frequency gain of the reverb (0–1)</summary>
     public float GainLF
     {
         get
@@ -61,6 +65,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>High-frequency gain of the reverb (0–1)</summary>
     public float GainHF
     {
         get
@@ -72,6 +77,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Overall linear gain of the reverb (0–1)</summary>
     public float Gain
     {
         get
@@ -83,6 +89,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Reverberation decay time at mid frequencies, in seconds (0.1–20)</summary>
     public float DecayTime
     {
         get
@@ -94,6 +101,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Ratio of low-frequency decay time to mid-frequency decay time (0.1–2)</summary>
     public float DecayLFRatio
     {
         get
@@ -105,6 +113,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Ratio of high-frequency decay time to mid-frequency decay time (0.1–2)</summary>
     public float DecayHFRatio
     {
         get
@@ -116,6 +125,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Linear gain of early reflections (0–3.16)</summary>
     public float ReflectionsGain
     {
         get
@@ -127,6 +137,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Linear gain of late reverberation (0–10)</summary>
     public float LateReverbGain
     {
         get
@@ -138,6 +149,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Delay of late reverberation relative to early reflections, in seconds (0–0.1)</summary>
     public float LateReverbDelay
     {
         get
@@ -149,6 +161,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Cycling time of the echo effect, in seconds (0.075–0.25)</summary>
     public float EchoTime
     {
         get
@@ -160,6 +173,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Amplitude of the echo effect (0–1)</summary>
     public float EchoDepth
     {
         get
@@ -171,6 +185,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Cycling time of the modulation effect, in seconds (0.04–4)</summary>
     public float ModulationTime
     {
         get
@@ -182,6 +197,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Amplitude of the modulation effect (0–1)</summary>
     public float ModulationDepth
     {
         get
@@ -193,6 +209,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Linear gain applied per meter of distance for high-frequency air absorption (0.892–1)</summary>
     public float AirAbsorptionGainHF
     {
         get
@@ -204,6 +221,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Reference frequency for high-frequency decay ratio, in Hz (1000–20000)</summary>
     public float HFReference
     {
         get
@@ -215,6 +233,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Reference frequency for low-frequency decay ratio, in Hz (20–1000)</summary>
     public float LFReference
     {
         get
@@ -226,6 +245,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Rolloff factor for reflected sound sources (0–10)</summary>
     public float RoomRolloffFactor
     {
         get
@@ -237,6 +257,7 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Whether to limit high-frequency decay time to the air absorption limit (0 or 1)</summary>
     public int DecayHFLimit
     {
         get
