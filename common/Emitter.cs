@@ -646,6 +646,19 @@ public unsafe partial class Emitter
         }
     }
 
+    /// <summary>Seed used to randomise visualisation rays. If null, a random visualisation seed is generated each time</summary>
+    public int? VisualisationSeed
+    {
+        get => isManaged ? managed.VisualisationSeed : native.VisualisationSeed;
+        set
+        {
+            if (isManaged)
+                managed.VisualisationSeed = value;
+            else
+                native.VisualisationSeed = value;
+        }
+    }
+
     public void AddTarget(Emitter target)
     {
         if (isManaged)
