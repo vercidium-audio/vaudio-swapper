@@ -1,4 +1,6 @@
-﻿namespace vaudioswapper;
+﻿// Human-created
+
+namespace vaudioswapper;
 
 public class EAXReverb
 {

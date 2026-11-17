@@ -1,3 +1,5 @@
+// Human-created
+
 global using static vaudioswapper.Constants;
 global using static vaudioswapper.Settings;
 

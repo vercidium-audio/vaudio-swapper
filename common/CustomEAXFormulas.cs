@@ -1,3 +1,5 @@
+// Human-created
+
 namespace vaudioswapper;
 
 internal unsafe class CustomEAXFormulasAdapter : vaudionativewrapper.managed.CustomEAXFormulas

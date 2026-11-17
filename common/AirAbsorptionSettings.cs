@@ -1,4 +1,6 @@
-﻿namespace vaudioswapper;
+﻿// Human-created
+
+namespace vaudioswapper;
 
 public class AirAbsorptionSettings
 {
@@ -28,7 +30,7 @@ public class AirAbsorptionSettings
 
     public void Destroy()
     {
-            native?.Destroy();
+        native?.Destroy();
     }
 
     /// <summary>Relative humidity as a percentage</summary>

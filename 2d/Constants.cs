@@ -1,3 +1,5 @@
+// Human-created
+
 namespace vaudioswapper;
 
 internal static partial class Constants

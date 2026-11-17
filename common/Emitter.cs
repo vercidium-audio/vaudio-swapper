@@ -1,3 +1,5 @@
+// Human-created
+
 namespace vaudioswapper;
 
 public unsafe partial class Emitter

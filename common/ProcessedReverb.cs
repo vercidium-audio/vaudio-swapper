@@ -1,4 +1,6 @@
-﻿namespace vaudioswapper;
+﻿// Human-created
+
+namespace vaudioswapper;
 
 public class ProcessedReverb
 {
@@ -7,8 +9,7 @@ public class ProcessedReverb
     public vaudio.ProcessedReverb managed;
 
     /// <summary>
-    /// The percentage of energy that escaped outside (hit the world edge).<br/>
-    /// Calculated as raw.OutsideTotal / (ReverbRayCount * ReverbBounceCount)
+    /// The percentage of ambient occlusion energy that reached the edge of the world
     /// </summary>
     public float OutsidePercent => isManaged ? managed.OutsidePercent : native.OutsidePercent;
 }

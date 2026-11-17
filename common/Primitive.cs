@@ -1,4 +1,6 @@
-﻿namespace vaudioswapper;
+﻿// Human-created
+
+namespace vaudioswapper;
 
 public abstract class Primitive
 {
@@ -13,7 +15,7 @@ public abstract class Primitive
     }
 
     /// <summary>
-    /// Whether rays lose a flat percentage of energy the moment they touch this primitive, instead of calculating how long the ray spent inside it.<br/>
+    /// Whether rays lose a flat percentage of energy when they touch this primitive, instead of calculating how long the ray spent inside it.<br/>
     /// Flat primitives (e.g. Disk, Plane, Triangle, Line) force this to true and throw if set to false.
     /// </summary>
     public bool UseFlatTransmission
