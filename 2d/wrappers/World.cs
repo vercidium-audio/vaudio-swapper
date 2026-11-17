@@ -1,10 +1,12 @@
+// Human-created
+
 using System.Diagnostics;
 
 namespace vaudioswapper;
 
 public partial class World
 {
-    private Primitive ImportPrimitive(vaudio.Primitive e)
+    Primitive ImportPrimitive(vaudio.Primitive e)
     {
         if (e is vaudio.LinePrimitive line)
             return new LinePrimitive(line);
@@ -29,6 +31,7 @@ public partial class World
         }
     }
 
+    /// <summary>Convert a rotation value to a listener-relative direction</summary>
     public vaudio.Vector CalculateListenerRelativePan(vaudio.Vector worldVector, float listenerRotation)
     {
         if (isManaged)
@@ -37,6 +40,7 @@ public partial class World
             return ToDotnet(native.CalculateListenerRelativePan(ToNative(worldVector), listenerRotation));
     }
 
+    /// <summary>Convert a world-space direction to a listener-relative direction</summary>
     public vaudio.Vector ConvertWorldToListenerDirection(vaudio.Vector worldDirection, float listenerRotation)
     {
         if (isManaged)
@@ -45,6 +49,7 @@ public partial class World
             return ToDotnet(native.ConvertWorldToListenerDirection(ToNative(worldDirection), listenerRotation));
     }
 
+    /// <summary>Convert a listener-relative direction to a world-space direction</summary>
     public vaudio.Vector ConvertListenerToWorldDirection(vaudio.Vector listenerDirection, float listenerRotation)
     {
         if (isManaged)
