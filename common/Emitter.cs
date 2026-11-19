@@ -91,7 +91,7 @@ public unsafe partial class Emitter
     /// <summary>The index of this emitter's EAX object in World.GroupedEAX</summary>
     public int GroupedEAXIndex => isManaged ? managed.GroupedEAXIndex : native.GroupedEAXIndex;
 
-    /// <summary>The percentage of ambient occlusion rays that reached the edge of the world.</summary>
+    /// <summary>The percentage of ambient occlusion energy that reached the edge of the world.</summary>
     public float OutsidePercent => isManaged ? managed.OutsidePercent : native.OutsidePercent;
 
     /// <summary>Whether reverb gain and direction will be calculated relative to this emitter. Set to true for your main listener emitter.</summary>
