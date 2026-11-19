@@ -1,4 +1,6 @@
-﻿namespace vaudioswapper;
+﻿// Human-created
+
+namespace vaudioswapper;
 
 public class AirAbsorptionSettings
 {
@@ -28,9 +30,10 @@ public class AirAbsorptionSettings
 
     public void Destroy()
     {
-            native?.Destroy();
+        native?.Destroy();
     }
 
+    /// <summary>Relative humidity as a percentage</summary>
     public float Humidity
     {
         get => isManaged ? managed.Humidity : native.Humidity;
@@ -43,6 +46,7 @@ public class AirAbsorptionSettings
         }
     }
 
+    /// <summary>Air temperature in degrees Celsius</summary>
     public float Temperature
     {
         get => isManaged ? managed.Temperature : native.Temperature;
@@ -55,6 +59,7 @@ public class AirAbsorptionSettings
         }
     }
 
+    /// <summary>Atmospheric pressure in Pascals</summary>
     public float Pressure
     {
         get => isManaged ? managed.Pressure : native.Pressure;

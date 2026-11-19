@@ -1,3 +1,5 @@
+// Human-created
+
 namespace vaudioswapper;
 
 public class GridPrimitive : Primitive
@@ -25,6 +27,7 @@ public class GridPrimitive : Primitive
         base.managed = grid;
     }
 
+    /// <summary>Controls the amount of energy lost when rays bounce off this primitive and pass through it</summary>
     public vaudio.MaterialType material
     {
         get => isManaged ? managed.material : ToDotnet(native.material);
@@ -37,6 +40,7 @@ public class GridPrimitive : Primitive
         }
     }
 
+    /// <summary>Position of the grid in world space</summary>
     public vaudio.Vector position
     {
         get => isManaged ? managed.position : ToDotnet(native.position);
@@ -49,6 +53,7 @@ public class GridPrimitive : Primitive
         }
     }
 
+    /// <summary>Rotation of the grid in radians</summary>
     public float rotation
     {
         get => isManaged ? managed.rotation : native.rotation;
@@ -61,6 +66,7 @@ public class GridPrimitive : Primitive
         }
     }
 
+    /// <summary>Scale of the cells</summary>
     public float scale
     {
         get => isManaged ? managed.scale : native.scale;

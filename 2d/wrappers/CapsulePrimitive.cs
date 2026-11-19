@@ -1,3 +1,5 @@
+// Human-created
+
 namespace vaudioswapper;
 
 public class CapsulePrimitive : Primitive
@@ -25,6 +27,7 @@ public class CapsulePrimitive : Primitive
         base.managed = oval;
     }
 
+    /// <summary>Controls the amount of energy lost when rays bounce off this primitive and pass through it</summary>
     public vaudio.MaterialType material
     {
         get => isManaged ? managed.material : ToDotnet(native.material);
@@ -37,6 +40,7 @@ public class CapsulePrimitive : Primitive
         }
     }
 
+    /// <summary>Center of the capsule in world space</summary>
     public vaudio.Vector center
     {
         get => isManaged ? managed.center : ToDotnet(native.center);
@@ -49,6 +53,7 @@ public class CapsulePrimitive : Primitive
         }
     }
 
+    /// <summary>Radius of the capsule</summary>
     public float radius
     {
         get => isManaged ? managed.radius : native.radius;
@@ -61,6 +66,7 @@ public class CapsulePrimitive : Primitive
         }
     }
 
+    /// <summary>Length of the body between the semicircular caps. The total length of the capsule is length + 2 * radius</summary>
     public float length
     {
         get => isManaged ? managed.length : native.length;
@@ -73,6 +79,7 @@ public class CapsulePrimitive : Primitive
         }
     }
 
+    /// <summary>Rotation of the capsule in radians</summary>
     public float rotation
     {
         get => isManaged ? managed.rotation : native.rotation;

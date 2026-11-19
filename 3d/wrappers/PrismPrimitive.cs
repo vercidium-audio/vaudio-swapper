@@ -25,6 +25,7 @@ public class PrismPrimitive : Primitive
         base.managed = prism;
     }
 
+    /// <summary>Controls the amount of energy lost when rays bounce off this primitive and pass through it</summary>
     public vaudio.MaterialType material
     {
         get => isManaged ? managed.material : ToDotnet(native.material);
@@ -37,6 +38,7 @@ public class PrismPrimitive : Primitive
         }
     }
 
+    /// <summary>Size of the prism</summary>
     public vaudio.Vector size
     {
         get => isManaged ? managed.size : ToDotnet(native.size);
@@ -49,6 +51,7 @@ public class PrismPrimitive : Primitive
         }
     }
 
+    /// <summary>Must only contain rotation and translation components, not scale</summary>
     public vaudio.Matrix transform
     {
         get => isManaged ? managed.transform : ToDotnet(native.transform);

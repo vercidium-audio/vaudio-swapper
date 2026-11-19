@@ -1,3 +1,5 @@
+// Human-created
+
 namespace vaudioswapper;
 
 public partial class World
@@ -16,6 +18,7 @@ public partial class World
             managed = new();
     }
 
+    /// <summary>This name is displayed in the debug window. Setting null stores an empty string.</summary>
     public string Name
     {
         get => isManaged ? managed.Name : native.Name;
@@ -173,6 +176,10 @@ public partial class World
             return native.GetEmitterCount();
     }
 
+    /// <summary>
+    /// The size of the world.<br/>
+    /// Emitters outside the world will not be raytraced, and Primitives that are fully outside these bounds will be ignored
+    /// </summary>
     public vaudio.Vector Size
     {
         get => isManaged ? managed.Size : ToDotnet(native.Size);
@@ -185,6 +192,10 @@ public partial class World
         }
     }
 
+    /// <summary>
+    /// The minimum bounds of the world.<br/>
+    /// Emitters outside the world will not be raytraced, and Primitives that are fully outside these bounds will not affect raytracing.
+    /// </summary>
     public vaudio.Vector Position
     {
         get => isManaged ? managed.Position : ToDotnet(native.Position);
@@ -197,6 +208,7 @@ public partial class World
         }
     }
 
+    /// <summary>The maximum bounds of the world (Position + Size)</summary>
     public vaudio.Vector MaxBounds
     {
         get => isManaged ? managed.MaxBounds : ToDotnet(native.MaxBounds);
@@ -209,17 +221,50 @@ public partial class World
         }
     }
 
+    /// <summary>The average time (in milliseconds) spent by Update on the main thread. This includes time spent handling previous raytracing results, applying new settings, processing primitive updates and submitting work to background threads.</summary>
     public double MainThreadTime => isManaged ? managed.MainThreadTime : native.MainThreadTime;
+    /// <summary>The average time (in milliseconds) spent in the preparation thread before the raytracing threads begin. This phase updates the BVH (Bounding Volume Hierarchy) acceleration structure with new, modified, and removed primitives. Higher values are a result of complex scene changes.</summary>
     public double PreparationTime => isManaged ? managed.PreparationTime : native.PreparationTime;
+    /// <summary>
+    /// The average time (in milliseconds) spent in the raytracing threads. This is the real-world elapsed time it takes for raytracing to complete, not the sum of all thread times.<br/>
+    /// This value is automatically adjusted based on how many threads perform raytracing.<br/>
+    /// Use this to monitor raytracing performance and adjust ray counts if needed.
+    /// </summary>
     public double RaytracingTime => isManaged ? managed.RaytracingTime : native.RaytracingTime;
+    /// <summary>
+    /// The average time (in milliseconds) spent in the analysing thread after the raytracing threads complete. This phase runs after raytracing completes and calculate reverb properties.<br/>
+    /// Use this to monitor raytracing performance and adjust ray counts if needed.
+    /// </summary>
     public double AnalysisTime => isManaged ? managed.AnalysisTime : native.AnalysisTime;
+    /// <summary>The average time (in milliseconds) between when Update is invoked, and when the OnReverbUpdated callback is invoked.</summary>
     public double Latency => isManaged ? managed.Latency : native.Latency;
+    /// <summary>
+    /// The average time (in milliseconds) between submitting work to the background thread pool and the first worker thread waking up. High values indicate thread wake-up / scheduling latency rather than raytracing work itself.<br/>
+    /// Not available in the WASM build.
+    /// </summary>
     public double SubmitToWakeTime => isManaged ? managed.SubmitToWakeTime : native.SubmitToWakeTime;
+    /// <summary>
+    /// The average time (in milliseconds) between the first worker thread waking up and the preparation work item (BVH build) finishing. This is the real-world elapsed time spent building/updating the BVH before emitter raytracing work is fanned out to other threads.<br/>
+    /// Not available in the WASM build.
+    /// </summary>
     public double WakeToFanoutTime => isManaged ? managed.WakeToFanoutTime : native.WakeToFanoutTime;
+    /// <summary>
+    /// The average time (in milliseconds) between the preparation work item fanning out emitter work, and the last fanned-out worker thread actually waking up to start it. High values indicate OS scheduling/wake latency across multiple threads, not time spent doing raytracing work.<br/>
+    /// Not available in the WASM build.
+    /// </summary>
     public double FanoutToLastWakeTime => isManaged ? managed.FanoutToLastWakeTime : native.FanoutToLastWakeTime;
+    /// <summary>
+    /// The average time (in milliseconds) between the last fanned-out worker thread waking up and the last emitter/visualisation work item completing. This isolates actual raytracing/visualisation work and work-queue contention from thread wake-up latency.<br/>
+    /// Not available in the WASM build.
+    /// </summary>
     public double LastWakeToWorkTime => isManaged ? managed.LastWakeToWorkTime : native.LastWakeToWorkTime;
+    /// <summary>
+    /// The average time (in milliseconds) spent executing the completion work item (reverb analysis) itself. This runs inline on whichever thread finishes the last emitter/visualisation work item, immediately after the last work item completes and before the completion event is released.<br/>
+    /// Not available in the WASM build.
+    /// </summary>
     public double CompletionWorkTime => isManaged ? managed.CompletionWorkTime : native.CompletionWorkTime;
 
+    /// <summary>List of grouped EAX reverb properties for all emitters. Contains parameters compatible with EAX reverb effects.</summary>
     public List<EAXReverb> GroupedEAX
     {
         get
@@ -241,6 +286,7 @@ public partial class World
         }
     }
 
+    /// <summary>Whether Emitters outside the world have 0 occlusion/permeation energy (true) or maximum energy (false).</summary>
     public bool EmittersOutsideTheWorldAreMuffled
     {
         get => managed?.EmittersOutsideTheWorldAreMuffled ?? native.EmittersOutsideTheWorldAreMuffled;
@@ -253,8 +299,10 @@ public partial class World
         }
     }
 
+    /// <summary>The number of rays cast this frame.</summary>
     public int RaysCastThisFrame => managed?.RaysCastThisFrame ?? native.RaysCastThisFrame;
 
+    /// <summary>The maximum number of grouped EAX reverb properties shared across all emitters that affect grouped EAX. Higher values increase accuracy but are more expensive to run.</summary>
     public int MaximumGroupedEAXCount
     {
         get
@@ -273,6 +321,7 @@ public partial class World
         }
     }
 
+    /// <summary>Whether occlusion rays should be affected by the world bounds material</summary>
     public bool OcclusionRaysLoseEnergyFromWorldBounds
     {
         get
@@ -291,6 +340,7 @@ public partial class World
         }
     }
 
+    /// <summary>The number of work items to split trails across for load balancing. A higher value helps evenly distribute work across all threads.</summary>
     public int WorkItemCount
     {
         get
@@ -309,6 +359,7 @@ public partial class World
         }
     }
 
+    /// <summary>The maximum amount of threads that can run in parallel. On WASM all worlds share a single thread pool, so this is a global setting via ThreadSettings.MaximumConcurrencyLevel. The maximum amount of threads that can run in parallel for this world</summary>
     public int MaximumConcurrencyLevel
     {
         get
@@ -327,6 +378,7 @@ public partial class World
         }
     }
 
+    /// <summary>A custom logging callback. Defaults to Console.WriteLine()</summary>
     public Action<string> LogCallback
     {
         set
@@ -338,6 +390,7 @@ public partial class World
         }
     }
 
+    /// <summary>Meters per world unit. Affects air absorption and reverb calculation.</summary>
     public float MetersPerUnit
     {
         get
@@ -356,6 +409,7 @@ public partial class World
         }
     }
 
+    /// <summary>Inverse speed of sound in seconds per meter. Affects reverb calculations.</summary>
     public float InverseSpeedOfSound
     {
         get
@@ -374,6 +428,7 @@ public partial class World
         }
     }
 
+    /// <summary>Low-frequency reference (Hz) for air absorption, reverb, and material scattering</summary>
     public float ReferenceFrequencyLF
     {
         get
@@ -392,6 +447,7 @@ public partial class World
         }
     }
 
+    /// <summary>High-frequency reference (Hz) for air absorption, reverb, and material scattering</summary>
     public float ReferenceFrequencyHF
     {
         get
@@ -410,6 +466,7 @@ public partial class World
         }
     }
 
+    /// <summary>Air absorption settings. Set to null to disable air absorption.</summary>
     public AirAbsorptionSettings AirAbsorption
     {
         get
@@ -456,6 +513,7 @@ public partial class World
             return native.HasMaterial(ToNative(type));
     }
 
+    /// <summary>This callback is invoked after EAX reverb results are updated. This gives you a chance to update your EAX effects, so they can be applied to an emitter in its Emitter.OnRaytracingComplete callback. After this, each emitter's callbacks are invoked, and then OnRaytracingResultsHandled is invoked.</summary>
     public Action OnReverbUpdated
     {
         set
@@ -475,6 +533,7 @@ public partial class World
             native.LogCallback = callback;
     }
 
+    /// <summary>Whether to log memory allocation warnings.</summary>
     public bool LogMemoryAllocationWarnings
     {
         get => isManaged ? managed.LogMemoryAllocationWarnings : native.LogMemoryAllocationWarnings;
@@ -487,6 +546,7 @@ public partial class World
         }
     }
 
+    /// <summary>Whether to render the raytracing simulation in a separate window (dev build only)</summary>
     public bool RenderingEnabled
     {
         get
@@ -502,6 +562,7 @@ public partial class World
         }
     }
 
+    /// <summary>Whether the debug window can independently move its camera around (dev build only)</summary>
     public bool ManualCamera
     {
         get
@@ -517,6 +578,7 @@ public partial class World
         }
     }
 
+    /// <summary>The position of the camera in the debug window (dev build only)</summary>
     public vaudio.Vector CameraPosition
     {
         get
@@ -532,6 +594,7 @@ public partial class World
         }
     }
 
+    /// <summary>Whether to render rays in the debug window (dev build only)</summary>
     public bool ShouldRenderRays
     {
         get
@@ -547,6 +610,7 @@ public partial class World
         }
     }
 
+    /// <summary>Whether to render primitives in the debug window (dev build only)</summary>
     public bool ShouldRenderPrimitives
     {
         get
@@ -562,6 +626,7 @@ public partial class World
         }
     }
 
+    /// <summary>The speed of the camera in the debug window (dev build only)</summary>
     public float CameraSpeed
     {
         get
@@ -577,6 +642,7 @@ public partial class World
         }
     }
 
+    /// <summary>Coordinate system used in the debug window and when calculating listener-relative reverb directionality</summary>
     public vaudio.CoordinateSystem CoordinateSystem
     {
         get
@@ -592,11 +658,13 @@ public partial class World
         }
     }
 
+    /// <summary>The time spent (in milliseconds) rendering the debug window (dev build only)</summary>
     public double RenderTime
     {
         get => isManaged ? managed.RenderTime : native.RenderTime;
     }
 
+    /// <summary>The position of the debug window (dev build only)</summary>
     public vaudio.UIVector WindowPosition
     {
         get =>  isManaged ? managed.WindowPosition : new(native.WindowPosition);
@@ -609,6 +677,7 @@ public partial class World
         }
     }
 
+    /// <summary>The size of the debug window (dev build only)</summary>
     public vaudio.UIVector WindowSize
     {
         get => isManaged ? managed.WindowSize : new(native.WindowSize);
@@ -621,6 +690,7 @@ public partial class World
         }
     }
 
+    /// <summary>The size of visualisation rays in the debug window (dev build only)</summary>
     public float VisualisationScale
     {
         get => isManaged ? managed.VisualisationScale : native.VisualisationScale;

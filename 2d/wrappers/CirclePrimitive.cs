@@ -1,3 +1,5 @@
+// Human-created
+
 namespace vaudioswapper;
 
 public class CirclePrimitive : Primitive
@@ -25,6 +27,7 @@ public class CirclePrimitive : Primitive
         base.managed = circle;
     }
 
+    /// <summary>Controls the amount of energy lost when rays bounce off this primitive and pass through it</summary>
     public vaudio.MaterialType material
     {
         get => isManaged ? managed.material : ToDotnet(native.material);
@@ -37,6 +40,7 @@ public class CirclePrimitive : Primitive
         }
     }
 
+    /// <summary>Center of the circle in world space</summary>
     public vaudio.Vector center
     {
         get => isManaged ? managed.center : ToDotnet(native.center);
@@ -49,6 +53,7 @@ public class CirclePrimitive : Primitive
         }
     }
 
+    /// <summary>Radius of the circle</summary>
     public float radius
     {
         get => isManaged ? managed.radius : native.radius;

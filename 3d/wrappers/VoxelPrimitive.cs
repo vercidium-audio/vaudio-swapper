@@ -33,6 +33,7 @@ public class VoxelPrimitive : Primitive
         base.managed = prim;
     }
 
+    /// <summary>Controls the amount of energy lost when rays bounce off this primitive and pass through it</summary>
     public vaudio.MaterialType material
     {
         get => isManaged ? managed.material : ToDotnet(native.material);
@@ -45,6 +46,7 @@ public class VoxelPrimitive : Primitive
         }
     }
 
+    /// <summary>Scale of the voxels</summary>
     public float scale
     {
         get => isManaged ? managed.scale : native.scale;
@@ -57,6 +59,7 @@ public class VoxelPrimitive : Primitive
         }
     }
 
+    /// <summary>Must only contain rotation and translation components, not scale</summary>
     public vaudio.Matrix transform
     {
         get => isManaged ? managed.transform : ToDotnet(native.transform);

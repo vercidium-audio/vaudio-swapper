@@ -1,3 +1,5 @@
+// Human-created
+
 namespace vaudioswapper;
 
 public class Path
@@ -25,8 +27,10 @@ public class Path
         native = path;
     }
 
+    /// <summary>The SVG path data this path was parsed from</summary>
     public string data => managed != null ? managed.data : native.data;
 
+    /// <summary>Whether the path ends with Z/z</summary>
     public bool closed => managed != null ? managed.closed : native.closed;
 
     public void Destroy()

@@ -55,8 +55,10 @@ public class MeshPrimitive : Primitive
 
     Mesh _mesh;
 
+    /// <summary>The underlying mesh used by this primitive.</summary>
     public Mesh mesh => _mesh ??= isManaged ? new Mesh(managed.mesh) : new Mesh(native.mesh);
 
+    /// <summary>Controls the amount of energy lost when rays bounce off this primitive and pass through it</summary>
     public vaudio.MaterialType material
     {
         get => isManaged ? managed.material : (vaudio.MaterialType)native.material;
@@ -69,6 +71,7 @@ public class MeshPrimitive : Primitive
         }
     }
 
+    /// <summary>Can contain scale, rotation and translation components</summary>
     public vaudio.Matrix transform
     {
         get => isManaged ? managed.transform : ToDotnet(native.transform);

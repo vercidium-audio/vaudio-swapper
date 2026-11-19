@@ -25,6 +25,7 @@ public class SpherePrimitive : Primitive
         base.managed = sphere;
     }
 
+    /// <summary>Controls the amount of energy lost when rays bounce off this primitive and pass through it</summary>
     public vaudio.MaterialType material
     {
         get => isManaged ? managed.material : ToDotnet(native.material);
@@ -37,6 +38,7 @@ public class SpherePrimitive : Primitive
         }
     }
 
+    /// <summary>Center of the sphere in world space</summary>
     public vaudio.Vector center
     {
         get => isManaged ? managed.center : ToDotnet(native.center);
@@ -49,6 +51,7 @@ public class SpherePrimitive : Primitive
         }
     }
 
+    /// <summary>Radius of the sphere</summary>
     public float radius
     {
         get => isManaged ? managed.radius : native.radius;

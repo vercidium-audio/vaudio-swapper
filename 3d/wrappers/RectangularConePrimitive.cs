@@ -25,6 +25,7 @@ public class RectangularConePrimitive : Primitive
         base.managed = prim;
     }
 
+    /// <summary>Controls the amount of energy lost when rays bounce off this primitive and pass through it</summary>
     public vaudio.MaterialType material
     {
         get => isManaged ? managed.material : ToDotnet(native.material);
@@ -37,6 +38,7 @@ public class RectangularConePrimitive : Primitive
         }
     }
 
+    /// <summary>Width of the rectangular base</summary>
     public float width
     {
         get => isManaged ? managed.width : native.width;
@@ -49,6 +51,7 @@ public class RectangularConePrimitive : Primitive
         }
     }
 
+    /// <summary>Length of the rectangular base</summary>
     public float length
     {
         get => isManaged ? managed.length : native.length;
@@ -61,6 +64,7 @@ public class RectangularConePrimitive : Primitive
         }
     }
 
+    /// <summary>Height of the cone</summary>
     public float height
     {
         get => isManaged ? managed.height : native.height;
@@ -73,6 +77,7 @@ public class RectangularConePrimitive : Primitive
         }
     }
 
+    /// <summary>Must only contain rotation and translation components, not scale</summary>
     public vaudio.Matrix transform
     {
         get => isManaged ? managed.transform : ToDotnet(native.transform);

@@ -1,3 +1,5 @@
+// Human-created
+
 namespace vaudioswapper;
 
 public class OvalPrimitive : Primitive
@@ -25,6 +27,7 @@ public class OvalPrimitive : Primitive
         base.managed = oval;
     }
 
+    /// <summary>Controls the amount of energy lost when rays bounce off this primitive and pass through it</summary>
     public vaudio.MaterialType material
     {
         get => isManaged ? managed.material : ToDotnet(native.material);
@@ -37,6 +40,7 @@ public class OvalPrimitive : Primitive
         }
     }
 
+    /// <summary>Center of the oval in world space</summary>
     public vaudio.Vector center
     {
         get => isManaged ? managed.center : ToDotnet(native.center);
@@ -49,6 +53,7 @@ public class OvalPrimitive : Primitive
         }
     }
 
+    /// <summary>Radius of the oval along its local X axis</summary>
     public float radiusX
     {
         get => isManaged ? managed.radiusX : native.radiusX;
@@ -61,6 +66,7 @@ public class OvalPrimitive : Primitive
         }
     }
 
+    /// <summary>Radius of the oval along its local Y axis</summary>
     public float radiusY
     {
         get => isManaged ? managed.radiusY : native.radiusY;
@@ -73,6 +79,7 @@ public class OvalPrimitive : Primitive
         }
     }
 
+    /// <summary>Rotation of the oval in radians</summary>
     public float rotation
     {
         get => isManaged ? managed.rotation : native.rotation;

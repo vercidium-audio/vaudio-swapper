@@ -1,3 +1,5 @@
+// Human-created
+
 namespace vaudioswapper;
 
 public class LinePrimitive : Primitive
@@ -25,6 +27,7 @@ public class LinePrimitive : Primitive
         base.managed = line;
     }
 
+    /// <summary>Controls the amount of energy lost when rays bounce off this primitive and pass through it</summary>
     public vaudio.MaterialType material
     {
         get => isManaged ? managed.material : ToDotnet(native.material);
@@ -37,6 +40,7 @@ public class LinePrimitive : Primitive
         }
     }
 
+    /// <summary>Start position of the line in world space</summary>
     public vaudio.Vector start
     {
         get => isManaged ? managed.start : ToDotnet(native.start);
@@ -49,6 +53,7 @@ public class LinePrimitive : Primitive
         }
     }
 
+    /// <summary>End position of the line in world space</summary>
     public vaudio.Vector end
     {
         get => isManaged ? managed.end : ToDotnet(native.end);

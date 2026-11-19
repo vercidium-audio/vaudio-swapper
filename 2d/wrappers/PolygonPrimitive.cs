@@ -1,3 +1,5 @@
+// Human-created
+
 namespace vaudioswapper;
 
 public class PolygonPrimitive : Primitive
@@ -40,6 +42,7 @@ public class PolygonPrimitive : Primitive
         _polygon = new Polygon(polygon.polygon);
     }
 
+    /// <summary>Controls the amount of energy lost when rays bounce off this primitive and pass through it</summary>
     public vaudio.MaterialType material
     {
         get => isManaged ? managed.material : ToDotnet(native.material);
@@ -52,6 +55,7 @@ public class PolygonPrimitive : Primitive
         }
     }
 
+    /// <summary>Shared local-space points, before rotation, scale and position are applied</summary>
     public Polygon polygon
     {
         get => _polygon;
@@ -66,6 +70,7 @@ public class PolygonPrimitive : Primitive
         }
     }
 
+    /// <summary>Position of the polygon in world space</summary>
     public vaudio.Vector position
     {
         get => isManaged ? managed.position : ToDotnet(native.position);
@@ -78,6 +83,7 @@ public class PolygonPrimitive : Primitive
         }
     }
 
+    /// <summary>Rotation of the polygon in radians</summary>
     public float rotation
     {
         get => isManaged ? managed.rotation : native.rotation;
@@ -90,6 +96,7 @@ public class PolygonPrimitive : Primitive
         }
     }
 
+    /// <summary>Scale applied to the local-space points, before rotation and position</summary>
     public vaudio.Vector scale
     {
         get => isManaged ? managed.scale : ToDotnet(native.scale);
@@ -102,6 +109,7 @@ public class PolygonPrimitive : Primitive
         }
     }
 
+    /// <summary>Whether the last point should connect back to the first</summary>
     public bool enclosed
     {
         get => isManaged ? managed.enclosed : native.enclosed;

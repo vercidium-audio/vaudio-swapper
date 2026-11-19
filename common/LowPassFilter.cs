@@ -1,3 +1,5 @@
+// Human-created
+
 using System.Runtime.InteropServices;
 
 namespace vaudioswapper;
@@ -35,6 +37,7 @@ public unsafe class LowPassFilter
 
     public bool Exists => isManaged ? managed != null : native != null;
 
+    /// <summary>Low-frequency gain in the range 0.0 to 1.0</summary>
     public float GainLF
     {
         get => isManaged ? managed.GainLF : native->gainLF;
@@ -47,6 +50,7 @@ public unsafe class LowPassFilter
         }
     }
 
+    /// <summary>High-frequency gain in the range 0.0 to 1.0</summary>
     public float GainHF
     {
         get => isManaged ? managed.GainHF : native->gainHF;

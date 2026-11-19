@@ -25,6 +25,7 @@ public class TrianglePrimitive : Primitive
         base.managed = prim;
     }
 
+    /// <summary>Controls the amount of energy lost when rays bounce off this primitive and pass through it</summary>
     public vaudio.MaterialType material
     {
         get => isManaged ? managed.material : ToDotnet(native.material);
@@ -37,6 +38,7 @@ public class TrianglePrimitive : Primitive
         }
     }
 
+    /// <summary>First vertex of the triangle in world space</summary>
     public vaudio.Vector position0
     {
         get => isManaged ? managed.position0 : ToDotnet(native.position0);
@@ -49,6 +51,7 @@ public class TrianglePrimitive : Primitive
         }
     }
 
+    /// <summary>Second vertex of the triangle in world space</summary>
     public vaudio.Vector position1
     {
         get => isManaged ? managed.position1 : ToDotnet(native.position1);
@@ -61,6 +64,7 @@ public class TrianglePrimitive : Primitive
         }
     }
 
+    /// <summary>Third vertex of the triangle in world space</summary>
     public vaudio.Vector position2
     {
         get => isManaged ? managed.position2 : ToDotnet(native.position2);
