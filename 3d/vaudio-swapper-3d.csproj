@@ -5,14 +5,14 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<Configurations>Debug;Release</Configurations>
 
-		<Version>1.11.2</Version>
-		<AssemblyVersion>1.11.2</AssemblyVersion>
-		<FileVersion>1.11.2</FileVersion>
-		<InformationalVersion>1.11.2</InformationalVersion>
+		<Version>1.11.3</Version>
+		<AssemblyVersion>1.11.3</AssemblyVersion>
+		<FileVersion>1.11.3</FileVersion>
+		<InformationalVersion>1.11.3</InformationalVersion>
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<UseLocalVaudioSource>false</UseLocalVaudioSource>
+		<UseLocalVaudioSource>true</UseLocalVaudioSource>
 
 		<!-- Separate output folders to prevent conflicts with parallel tests -->
 		<IntermediateOutputPath>obj\$(Configuration)-local$(UseLocalVaudioSource)\</IntermediateOutputPath>
