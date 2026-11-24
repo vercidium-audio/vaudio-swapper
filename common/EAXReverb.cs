@@ -274,7 +274,7 @@ public class EAXReverb
     public vaudio.Vector? GetRelativeDirection(Emitter emitter)
     {
         if (isManaged)
-            return managed.RelativeDirections.TryGetValue(emitter.managed, out var v) ? v : null;
+            return managed.HasRelativeResults(emitter.managed) ? managed.GetRelativeDirection(emitter.managed) : null;
         else
             return ToDotnet(native.GetRelativeDirection(emitter.native));
     }
@@ -282,7 +282,7 @@ public class EAXReverb
     public float? GetRelativeGain(Emitter emitter)
     {
         if (isManaged)
-            return managed.RelativeGains.TryGetValue(emitter.managed, out var v) ? v : null;
+            return managed.HasRelativeResults(emitter.managed) ? managed.GetRelativeGain(emitter.managed) : null;
         else
             return native.GetRelativeGain(emitter.native);
     }
