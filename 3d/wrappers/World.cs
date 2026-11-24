@@ -1,3 +1,5 @@
+// Human-created
+
 using System.Diagnostics;
 
 namespace vaudioswapper;

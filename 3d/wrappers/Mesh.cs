@@ -1,3 +1,5 @@
+// Human-created
+
 using System.Runtime.InteropServices;
 
 namespace vaudioswapper;
