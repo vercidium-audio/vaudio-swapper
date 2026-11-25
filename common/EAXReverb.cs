@@ -271,6 +271,18 @@ public class EAXReverb
         }
     }
 
+    /// <summary>Cutoff frequency of a low-pass filter on the reverb, in Hz (20–20000). Matches FMOD's DSP_SFXREVERB.HIGHCUT</summary>
+    public float HighCut => isManaged ? managed.HighCut : native.HighCut;
+
+    /// <summary>Gain of a low-shelf filter on the reverb at <see cref="LFReference"/>, in decibels (-36–12). Matches FMOD's DSP_SFXREVERB.LOWSHELFGAIN</summary>
+    public float LowShelfGain => isManaged ? managed.LowShelfGain : native.LowShelfGain;
+
+    /// <summary>Level of the reverb signal, in decibels (-80–20). <see cref="HighCut"/> and <see cref="LowShelfGain"/> only cut from it. Matches FMOD's DSP_SFXREVERB.WETLEVEL</summary>
+    public float WetLevel => isManaged ? managed.WetLevel : native.WetLevel;
+
+    /// <summary>Blend of late reverb to early reflections, in percent (0–100). 0 is only early reflections, 100 is only late reverb. Matches FMOD's DSP_SFXREVERB.EARLYLATEMIX</summary>
+    public float EarlyLateMix => isManaged ? managed.EarlyLateMix : native.EarlyLateMix;
+
     public vaudio.Vector? GetRelativeDirection(Emitter emitter)
     {
         if (isManaged)

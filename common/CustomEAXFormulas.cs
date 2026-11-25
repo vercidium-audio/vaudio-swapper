@@ -40,4 +40,12 @@ internal unsafe class CustomEAXFormulasAdapter : vaudionativewrapper.managed.Cus
     public override void CalculateReflectionsAndLateReverbGain(float earlyLateTransitionMs, float referenceEnergy, out float reflectionsGain, out float lateReverbGain) => inner.CalculateReflectionsAndLateReverbGain(earlyLateTransitionMs, referenceEnergy, out reflectionsGain, out lateReverbGain);
 
     public override float CalculateRT60(float[] echogram) => inner.CalculateRT60(echogram);
+
+    public override float CalculateHighCut(float hfReference) => inner.CalculateHighCut(hfReference);
+
+    public override float CalculateLowShelfGain() => inner.CalculateLowShelfGain();
+
+    public override float CalculateWetLevel(float earlyLateTransitionMs, float referenceEnergy, float gain) => inner.CalculateWetLevel(earlyLateTransitionMs, referenceEnergy, gain);
+
+    public override float CalculateEarlyLateMix(float earlyLateTransitionMs) => inner.CalculateEarlyLateMix(earlyLateTransitionMs);
 }
