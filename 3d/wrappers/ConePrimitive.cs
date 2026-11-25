@@ -1,3 +1,5 @@
+// Human-created
+
 namespace vaudioswapper;
 
 public class ConePrimitive : Primitive
