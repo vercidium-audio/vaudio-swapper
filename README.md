@@ -16,6 +16,8 @@ To use the C# SDK, copy `vaudio.dll` and `vaudio.xml` from the `dotnet/dev` fold
 
 To use the native C SDK, ensure your project copies `vaudionative.dll` to your build folder.
 
+To use the debug window with the dev SDK, ensure your project copies the files from the SDK's `3d/debug-window/{platform}` folder to your build folder, next to `vaudio.dll` and `vaudionative.dll`. Both C# and C SDKs use the same debug window.
+
 ## Features
 
 - Muffle sounds in real time
